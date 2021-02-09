@@ -85,7 +85,8 @@ export const store = new Vuex.Store({
     ],
 
     selectedJourneyType: "single / return",
-    selectedDate : new Date().toISOString().slice(0,10)
+    selectedDate: new Date().toISOString().slice(0, 10),
+    selectedPassengerCount: []
     
 
   },
@@ -99,7 +100,11 @@ export const store = new Vuex.Store({
 
     updateSelectedDate(state, selectedDate) {
       state.selectedDate = selectedDate;
-    }
+    },
+
+    updateSelectedPassengerCount(state, selectedPassengerCount) {
+      state.selectedPassengerCount = selectedPassengerCount;
+    },
   },
   actions: {
    

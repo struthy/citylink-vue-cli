@@ -15,17 +15,13 @@
 </template>
 <script>
 export default {
-  data: function () {
+  data: function() {
     return {};
   },
 
   computed: {
     journeytypes() {
       return this.$store.state.journeytypes;
-    },
-
-    saleJourneytypes() {
-      return this.$store.getters.saleJourneytypes;
     },
 
     selectedJourneyType: {
@@ -38,11 +34,7 @@ export default {
     },
   },
 
-  methods: {
-    reducePrice: function () {
-      this.$store.dispatch("reducePrice");
-    },
-  },
+  methods: {},
 };
 </script>
 
