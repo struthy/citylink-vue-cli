@@ -1,28 +1,106 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <form id="journey-details">
+      <journey-type></journey-type>
+
+      <div v-if="selectedJourneyType == 'single / return'" id="single-journey">
+        <auto-complete
+          form-label="From"
+          :items="[
+            'Glasgow Airport',
+            'Glasgow Anniesland',
+            'Glasgow Buchanan Bus Station',
+            'Glasgow Cathedral Steet',
+            'ect....',
+          ]"
+        />
+
+        <auto-complete
+          form-label="To"
+          :items="[
+            'Inverness Montague Road',
+            'Inverness Tomnahurich',
+            'Inverary',
+            'Inveraray Brae',
+            'ect....',
+          ]"
+        />
+
+        <datepicker
+          v-model="selectedDate"
+          placeholder="Select Date"
+          wrapper-class="custom-css"
+        >
+        </datepicker>
+
+        <passenger-type></passenger-type>
+      </div>
+
+      <div v-if="selectedJourneyType == 'Multi journey'" id="multi-journey">
+        <h3>Multi Journey</h3>
+      </div>
+
+      <div v-if="selectedJourneyType == 'Explorer passes'" id="explorer-pass">
+        <h3>explorer pass</h3>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import JourneyType from "./components/journeyType.vue";
+import passengerType from "./components/passengerType.vue";
+import autocomplete from "./components/Autocomplete.vue";
+import Datepicker from "vuejs-datepicker";
 
 export default {
-  name: "App",
+  name: "app",
   components: {
-    HelloWorld
-  }
+    "journey-type": JourneyType,
+    "passenger-type": passengerType,
+    "auto-complete": autocomplete,
+    Datepicker,
+  },
+
+  data: function() {
+    return {};
+  },
+
+  computed: {
+    journeytypes() {
+      return this.$store.state.journeytypes;
+    },
+
+    saleJourneytypes() {
+      return this.$store.getters.saleJourneytypes;
+    },
+
+    selectedJourneyType: {
+      get() {
+        return this.$store.state.selectedJourneyType;
+      },
+      set(value) {
+        this.$store.commit("updateSelectedJourneyType", value);
+      },
+    },
+
+    selectedDate: {
+      get() {
+        return this.$store.state.selectedDate;
+      },
+      set(value) {
+        this.$store.commit("updateSelectedDate", value);
+      },
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.widget__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1 1 100%;
 }
 </style>
