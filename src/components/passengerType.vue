@@ -6,7 +6,12 @@
         <span>{{ passengertype.type }}</span>
         <div class="passenger-count__container">
           <button>-</button>
-          <input type="number" min="0" v-model="selectedPassengerCount[i]" />
+          <input
+            type="number"
+            min="1"
+            :value="selectedPassengerCount[i]"
+            @input="updatePassangerCount(i, $event.target.value)"
+          />
           <button>+</button>
         </div>
       </li>
@@ -31,10 +36,7 @@ export default {
         return this.$store.state.selectedPassengerCount;
       },
       set(value) {
-        let payload = {
-          selectedPassengerCount: value,
-        };
-        this.$store.commit("updateSelectedPassengerCount", payload);
+        this.$store.commit("updateSelectedPassengerCount", value);
       },
     },
   },
@@ -42,6 +44,13 @@ export default {
   methods: {
     onChange() {
       this.isOpen = !this.isOpen;
+    },
+
+    updatePassangerCount(i, value) {
+      const newArray = [...this.selectedPassengerCount];
+      newArray[i] = parseInt(value); // value from input is always string
+      this.$store.commit("updateSelectedPassengerCount", newArray);
+      // or create a new mutation with (index, value) arguments
     },
   },
 };

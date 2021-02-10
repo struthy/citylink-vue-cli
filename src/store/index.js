@@ -102,9 +102,8 @@ export const store = new Vuex.Store({
       state.selectedDate = selectedDate;
     },
 
-    updateSelectedPassengerCount(state, payload) {
-      state.selectedPassengerCount = payload.selectedPassengerCount;
-      return;
+    updateSelectedPassengerCount(state, selectedPassengerCount) {
+      state.selectedPassengerCount = selectedPassengerCount;
     },
   },
   actions: {
