@@ -6,7 +6,7 @@
         <span>{{ passengertype.type }}</span>
         <div class="passenger-count__container">
           <button>-</button>
-          <input type="number" min="1" v-model="selectedPassengerCount[i]" />
+          <input type="number" min="0" v-model="selectedPassengerCount[i]" />
           <button>+</button>
         </div>
       </li>
@@ -31,7 +31,10 @@ export default {
         return this.$store.state.selectedPassengerCount;
       },
       set(value) {
-        this.$store.commit("updateSelectedPassengerCount", value);
+        let payload = {
+          selectedPassengerCount: value,
+        };
+        this.$store.commit("updateSelectedPassengerCount", payload);
       },
     },
   },
