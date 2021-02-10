@@ -5,14 +5,22 @@
       <li v-for="(passengertype, i) in passengertypes" :key="i">
         <span>{{ passengertype.type }}</span>
         <div class="passenger-count__container">
-          <button>-</button>
+          <button
+            @click.prevent="updatePassangerCount(i, $event.target.value--)"
+          >
+            -
+          </button>
           <input
             type="number"
-            min="1"
+            min="0"
             :value="selectedPassengerCount[i]"
             @input="updatePassangerCount(i, $event.target.value)"
           />
-          <button>+</button>
+          <button
+            @click.prevent="updatePassangerCount(i, $event.target.value++)"
+          >
+            +
+          </button>
         </div>
       </li>
     </ul>
@@ -21,6 +29,7 @@
 </template>
 <script>
 export default {
+  components: {},
   data() {
     return {
       isOpen: false,
@@ -51,6 +60,12 @@ export default {
       newArray[i] = parseInt(value); // value from input is always string
       this.$store.commit("updateSelectedPassengerCount", newArray);
       // or create a new mutation with (index, value) arguments
+    },
+
+    passengerCountPlus(i, value) {
+      const newArray = [...this.selectedPassengerCount];
+      newArray[i] = parseInt(value); // value from input is always string
+      this.$store.commit("updateSelectedPassengerCount", newArray);
     },
   },
 };
