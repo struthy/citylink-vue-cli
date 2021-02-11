@@ -86,7 +86,7 @@ export const store = new Vuex.Store({
 
     selectedJourneyType: "single / return",
     selectedDate: new Date().toISOString().slice(0, 10),
-    selectedPassengerCount: [],
+    selectedPassengerCount: [0, 0, 0, 0, 0, 0, 0, 0],
     selectedPassengerType: []
 
     

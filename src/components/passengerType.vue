@@ -9,7 +9,7 @@
             @click.prevent="
               updatePassangerCount(i, selectedPassengerCount[i] - 1)
             "
-            :disabled="selectedPassengerCount[i] === 1"
+            :disabled="selectedPassengerCount[i] === 0"
           >
             -
           </button>
@@ -34,6 +34,10 @@
 </template>
 <script>
 export default {
+  props: {
+    value: [Number],
+  },
+
   data() {
     return {
       isOpen: false,
