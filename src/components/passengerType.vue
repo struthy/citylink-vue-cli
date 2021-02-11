@@ -5,17 +5,25 @@
       <li v-for="(passengertype, i) in passengertypes" :key="i">
         <span>{{ passengertype.type }}</span>
         <div class="passenger-count__container">
-          <button @click.prevent="decrement">
+          <button
+            @click.prevent="
+              updatePassangerCount(i, selectedPassengerCount[i] - 1)
+            "
+            :disabled="selectedPassengerCount[i] === 1"
+          >
             -
           </button>
           <input
-            ref="inputPassengerCount"
             type="number"
             min="0"
             :value="selectedPassengerCount[i]"
             @input="updatePassangerCount(i, $event.target.value)"
           />
-          <button @click.prevent="increment">
+          <button
+            @click.prevent="
+              updatePassangerCount(i, selectedPassengerCount[i] + 1)
+            "
+          >
             +
           </button>
         </div>
@@ -32,8 +40,13 @@ export default {
     };
   },
   computed: {
-    passengertypes() {
-      return this.$store.state.passengertypes;
+    passengertypes: {
+      get() {
+        return this.$store.state.passengertypes;
+      },
+      set(value) {
+        this.$store.commit("updatePassengerTypes", value);
+      },
     },
 
     selectedPassengerCount: {
@@ -51,18 +64,18 @@ export default {
       this.isOpen = !this.isOpen;
     },
 
-    updatePassangerCount(i, value) {
+    updatePassangerCount(index, value) {
       const newArray = [...this.selectedPassengerCount];
-      newArray[i] = parseInt(value); // value from input is always string
+      newArray[index] = parseInt(value); // value from input is always string
       this.$store.commit("updateSelectedPassengerCount", newArray);
       // or create a new mutation with (index, value) arguments
     },
 
     decrement() {},
 
-    increment() {
-      // +1 from updateSelectedPassengerCount
-    },
+    increment() {},
   },
 };
 </script>
+
+<style scoped></style>

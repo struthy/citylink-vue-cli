@@ -86,7 +86,9 @@ export const store = new Vuex.Store({
 
     selectedJourneyType: "single / return",
     selectedDate: new Date().toISOString().slice(0, 10),
-    selectedPassengerCount: []
+    selectedPassengerCount: [],
+    selectedPassengerType: []
+
     
 
   },
@@ -105,8 +107,18 @@ export const store = new Vuex.Store({
     updateSelectedPassengerCount(state, selectedPassengerCount) {
       state.selectedPassengerCount = selectedPassengerCount;
     },
+
+    addSelectedPassengerCount(state, selectedPassengerCount) {
+      state.selectedPassengerCount = selectedPassengerCount;
+    },
+
+    updatePassengerTypes(state, selectedPassengerType) {
+      state.selectedPassengerType = selectedPassengerType;
+    },
   },
   actions: {
-   
+    addPassengers: context => {
+      context.commit('addPassengers')
+    }
   }
 });
