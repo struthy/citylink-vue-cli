@@ -3,6 +3,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+
 export const store = new Vuex.Store({
   state: {
     journeytypes: [
@@ -59,28 +60,36 @@ export const store = new Vuex.Store({
     ],
     passengertypes: [
       {
-        type: "Adult"
+        type: "Adult",
+        count: 0
       },
       {
-        type: "Child"
+        type: "Child",
+        count: 0
       },
       {
-        type: "60+ / Disabled NEC"
+        type: "60+ / Disabled NEC",
+        count: 0
       },
       {
-        type: "Student"
+        type: "Student",
+        count: 0
       },
       {
-        type: "Young Scot 16-18 years"
+        type: "Young Scot 16-18 years",
+        count: 0
       },
       {
-        type: "Young Scot 19-25 years"
+        type: "Young Scot 19-25 years",
+        count: 0
       },
       {
-        type: "GCU Studentult"
+        type: "GCU Studentult",
+        count: 0
       },
       {
-        type: "Comp"
+        type: "Comp",
+        count: 0
       }
     ],
 
@@ -88,8 +97,6 @@ export const store = new Vuex.Store({
     selectedDate: new Date().toISOString().slice(0, 10),
     selectedPassengerCount: [0, 0, 0, 0, 0, 0, 0, 0],
     selectedPassengerType: []
-
-    
 
   },
   getters: {
@@ -115,10 +122,11 @@ export const store = new Vuex.Store({
     updatePassengerTypes(state, selectedPassengerType) {
       state.selectedPassengerType = selectedPassengerType;
     },
-  },
-  actions: {
-    addPassengers: context => {
-      context.commit('addPassengers')
+
+    dummy: state => {
+      state.passengertypes.forEach((passengertype) => {
+        passengertype.count++;
+      });
     }
   }
 });
