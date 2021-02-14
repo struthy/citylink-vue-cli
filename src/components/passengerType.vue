@@ -3,41 +3,17 @@
     <input type="text" placeholder="select passengers" @click="onChange" />
     <ul>
       <li v-for="(passengertype, i) in passengertypes" :key="i">
-        <span>{{ passengertype.type }}</span> /
-        <span>count is {{ passengertype.count }}</span>
-        <div class="passenger-count__container">
-          <!-- <button
-            @click.prevent="
-              updatePassangerCount(i, selectedPassengerCount[i] - 1)
-            "
-            :disabled="selectedPassengerCount[i] === 0"
-          >
-            -
-          </button> -->
-          <!-- <input
-            type="number"
-            min="0"
-            :value="selectedPassengerCount[i]"
-            @input="updatePassangerCount(i, $event.target.value)"
-          /> -->
+        <span>{{ passengertype.typePassenger }}</span>
 
+        <div class="passenger-count__container">
           <input
             type="number"
             min="0"
-            @input="updatePassangerType(i, $event.target.value)"
             :value="passengertypes[i].count"
+            @input="updatePassangerType(i, $event.target.value)"
           />
-          <!-- <button
-            @click.prevent="
-              updatePassangerCount(i, selectedPassengerCount[i] + 1)
-            "
-          >
-            +
-          </button> -->
         </div>
       </li>
-
-      <button @click.prevent="dummy">add 1</button>
     </ul>
     <button style="margin-top: 30px;">Done</button>
   </div>
@@ -55,11 +31,7 @@ export default {
         return this.$store.state.passengertypes;
       },
       set(value) {
-        let payload = {
-          count: value,
-          type: this.type,
-        };
-        this.$store.commit("updatePassengerTypes", payload);
+        this.$store.commit("updatePassengerTypes", value);
       },
     },
 
@@ -71,15 +43,6 @@ export default {
     //     this.$store.commit("updateSelectedPassengerCount", value);
     //   },
     // },
-
-    // selectedPassengerType: {
-    //   get() {
-    //     return this.$store.state.selectedPassengerType;
-    //   },
-    //   set(value) {
-    //     this.$store.commit("updateSelectedPassengerType", value);
-    //   },
-    // },
   },
 
   methods: {
@@ -87,15 +50,21 @@ export default {
       this.isOpen = !this.isOpen;
     },
 
-    updatePassangerType(index, value) {
-      const newArray = [...this.passengertypes];
-      newArray[index] = parseInt(value); // value from input is always string
-      this.$store.commit("updatePassengerTypes", newArray);
-      // or create a new mutation with (index, value) arguments
-    },
+    // updatePassangerCount(i, count, value) {
+    //   const newArray = [...this.passengertypes];
+    //   newArray[i] = count.parseInt(value); // value from input is always string
 
-    dummy: function() {
-      this.$store.commit("dummy");
+    //   this.$store.commit("updatePassengerTypes", newArray);
+    //   // or create a new mutation with (index, value) arguments
+    // },
+
+    updatePassangerType(i, value) {
+      const newObject = [...this.passengertypes];
+      console.log(newObject);
+      newObject[i] = parseInt(value); // value from input is always string
+      // console.log(i, value);
+      this.$store.commit("updatePassengerTypes", newObject);
+      // or create a new mutation with (index, value) arguments
     },
 
     decrement() {},

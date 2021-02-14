@@ -60,35 +60,35 @@ export const store = new Vuex.Store({
     ],
     passengertypes: [
       {
-        type: "Adult",
+        typePassenger: "Adult",
         count: 0
       },
       {
-        type: "Child",
+        typePassenger: "Child",
         count: 0
       },
       {
-        type: "60+ / Disabled NEC",
+        typePassenger: "60+ / Disabled NEC",
         count: 0
       },
       {
-        type: "Student",
+        typePassenger: "Student",
         count: 0
       },
       {
-        type: "Young Scot 16-18 years",
+        typePassenger: "Young Scot 16-18 years",
         count: 0
       },
       {
-        type: "Young Scot 19-25 years",
+        typePassenger: "Young Scot 19-25 years",
         count: 0
       },
       {
-        type: "GCU Studentult",
+        typePassenger: "GCU Studentult",
         count: 0
       },
       {
-        type: "Comp",
+        typePassenger: "Comp",
         count: 0
       }
     ],
@@ -115,18 +115,16 @@ export const store = new Vuex.Store({
       state.selectedPassengerCount = selectedPassengerCount;
     },
 
-    // addSelectedPassengerCount(state, selectedPassengerCount) {
-    //   state.selectedPassengerCount = selectedPassengerCount;
-    // },
 
-    // updatePassengerTypes(state, payload) {
-    //   state.selectedPassengerType = selectedPassengerType;
-    // },
-
-    updatePassengerTypes(state, payload) {
-      state.selectedPassengerType = payload.selectedPassengerType;
-      return;
+    updatePassengerTypes(state, passengertypes) {
+      state.passengertypes.count = passengertypes.count;
     },
+
+    // updatePassengerTypes: (state, updPassengertypes) => {
+    //   state.passengertypes['keyname'] = updPassengertypes
+    // },
+
+  
 
     dummy: state => {
       state.passengertypes.forEach((passengertype) => {
