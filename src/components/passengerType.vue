@@ -6,12 +6,23 @@
         <span>{{ passengertype.typePassenger }}</span>
 
         <div class="passenger-count__container">
+          <button
+            @click.prevent="updatePassangerType(i, passengertypes[i].count - 1)"
+            :disabled="passengertypes[i].count === 0"
+          >
+            -
+          </button>
           <input
             type="number"
             min="0"
             :value="passengertypes[i].count"
             @input="updatePassangerType(i, $event.target.value)"
           />
+          <button
+            @click.prevent="updatePassangerType(i, passengertypes[i].count + 1)"
+          >
+            +
+          </button>
         </div>
       </li>
     </ul>
