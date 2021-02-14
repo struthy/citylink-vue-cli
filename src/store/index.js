@@ -95,7 +95,6 @@ export const store = new Vuex.Store({
 
     selectedJourneyType: "single / return",
     selectedDate: new Date().toISOString().slice(0, 10),
-    selectedPassengerType: []
 
   },
   getters: {
@@ -110,15 +109,15 @@ export const store = new Vuex.Store({
       state.selectedDate = selectedDate;
     },
 
-
     updatePassengerTypes(state, passengertypes) {
       state.passengertypes = passengertypes;
     },
 
-    dummy: state => {
-      state.passengertypes.forEach((passengertype) => {
-        passengertype.count++;
-      });
-    }
+    // just for testing 
+    // dummy: state => {
+    //   state.passengertypes.forEach((passengertype) => {
+    //     passengertype.count++;
+    //   });
+    // }
   }
 });
