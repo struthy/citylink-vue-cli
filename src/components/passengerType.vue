@@ -34,15 +34,6 @@ export default {
         this.$store.commit("updatePassengerTypes", value);
       },
     },
-
-    // selectedPassengerCount: {
-    //   get() {
-    //     return this.$store.state.selectedPassengerCount;
-    //   },
-    //   set(value) {
-    //     this.$store.commit("updateSelectedPassengerCount", value);
-    //   },
-    // },
   },
 
   methods: {
@@ -50,26 +41,14 @@ export default {
       this.isOpen = !this.isOpen;
     },
 
-    // updatePassangerCount(i, count, value) {
-    //   const newArray = [...this.passengertypes];
-    //   newArray[i] = count.parseInt(value); // value from input is always string
-
-    //   this.$store.commit("updatePassengerTypes", newArray);
-    //   // or create a new mutation with (index, value) arguments
-    // },
-
     updatePassangerType(i, value) {
       const newObject = [...this.passengertypes];
       console.log(newObject);
-      newObject[i] = parseInt(value); // value from input is always string
+      newObject[i].count = parseInt(value); // value from input is always string
       // console.log(i, value);
       this.$store.commit("updatePassengerTypes", newObject);
       // or create a new mutation with (index, value) arguments
     },
-
-    decrement() {},
-
-    increment() {},
   },
 };
 </script>
