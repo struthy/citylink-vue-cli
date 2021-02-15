@@ -1,6 +1,12 @@
 <template>
   <div id="passenger-type">
-    <input type="text" placeholder="select passengers" @click="onChange" />
+    <input
+      type="text"
+      placeholder="select passengers"
+      @click="onChange"
+      v-model="displayedPassengerTypes"
+    />
+
     <ul>
       <li v-for="(passengertype, i) in passengertypes" :key="i">
         <span>{{ passengertype.typePassenger }}</span>
@@ -48,6 +54,15 @@ export default {
       },
       set(value) {
         this.$store.commit("updatePassengerTypes", value);
+      },
+    },
+
+    displayedPassengerTypes: {
+      get() {
+        return this.$store.state.captureUpdatedPassengerTypes;
+      },
+      set() {
+        this.$store.commit("displayedPassengerTypes");
       },
     },
   },
