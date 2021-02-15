@@ -26,7 +26,9 @@
         </div>
       </li>
     </ul>
-    <button style="margin-top: 30px;">Done</button>
+    <button @click.prevent="modifiedPassengerTypes" style="margin-top: 30px;">
+      Done
+    </button>
   </div>
 </template>
 <script>
@@ -53,12 +55,21 @@ export default {
     },
 
     updatePassangerType(i, value) {
-      const newObject = [...this.passengertypes];
-      console.log(newObject);
-      newObject[i].count = parseInt(value); // value from input is always string
-      // console.log(i, value);
-      this.$store.commit("updatePassengerTypes", newObject);
-      // or create a new mutation with (index, value) arguments
+      const newPassengerTypes = [...this.passengertypes];
+      newPassengerTypes[i].count = parseInt(value); // value from input is always string
+
+      if ((newPassengerTypes[i].count = parseInt(value) >= 1)) {
+        console.log(newPassengerTypes[i].typePassenger);
+        console.log((newPassengerTypes[i].count = parseInt(value)));
+      }
+      this.$store.commit("updatePassengerTypes", newPassengerTypes);
+    },
+
+    modifiedPassengerTypes() {
+      if (this.passengertypes.count >= 1) {
+        console.log(this.passengertypes.typePassenger);
+        console.log(this.passengertypes.count);
+      }
     },
   },
 };
