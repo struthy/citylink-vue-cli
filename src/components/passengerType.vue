@@ -57,11 +57,6 @@ export default {
     updatePassangerType(i, value) {
       const newPassengerTypes = [...this.passengertypes];
       newPassengerTypes[i].count = parseInt(value); // value from input is always string
-
-      if ((newPassengerTypes[i].count = parseInt(value) >= 1)) {
-        console.log(newPassengerTypes[i].typePassenger);
-        console.log((newPassengerTypes[i].count = parseInt(value)));
-      }
       this.$store.commit("updatePassengerTypes", newPassengerTypes);
     },
 
