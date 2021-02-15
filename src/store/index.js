@@ -113,9 +113,9 @@ export const store = new Vuex.Store({
       state.passengertypes = passengertypes;
     },
 
-    modifiedPassengerTypes(state, updatePassengerTypes) {
-      let modified = state.updatePassengerTypes = updatePassengerTypes.filter(x => x.count >= 1);
-      return modified
+    captureUpdatedPassengerTypes(state, updatePassengerTypes) {
+      let filtered = state.updatePassengerTypes = updatePassengerTypes.filter(x => x.count >= 1);
+      return filtered
     },
 
     // just for testing 
