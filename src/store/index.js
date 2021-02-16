@@ -96,9 +96,6 @@ export const store = new Vuex.Store({
     selectedJourneyType: "single / return",
     selectedDate: new Date().toISOString().slice(0, 10),
     updatePassengerTypes: []
-
-   
-
   },
   getters: {
 

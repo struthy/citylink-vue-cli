@@ -1,6 +1,6 @@
 <template>
   <div id="passenger-type">
-    <input type="text" placeholder="select passengers" />
+    <h4>Passengers selected</h4>
     <div v-if="updatePassengerTypes">
       <li v-for="(a, i) in updatePassengerTypes" :key="i">
         {{ a.typePassenger }} x {{ a.count }}
