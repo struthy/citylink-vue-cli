@@ -1,6 +1,10 @@
 <template>
   <div id="passenger-type">
-    <input type="text" placeholder="select passengers" @click="onChange" />
+    <input type="text" placeholder="select passengers" />
+
+    <div v-if="updatePassangerTypes">
+      <p>{{ updatePassangerTypes.count }}</p>
+    </div>
 
     <ul>
       <li v-for="(passengertype, i) in passengertypes" :key="i">
@@ -51,6 +55,15 @@ export default {
         this.$store.commit("updatePassengerTypes", value);
       },
     },
+
+    updatePassangerTypes: {
+      get() {
+        return this.$store.state.updatePassengerTypes;
+      },
+      set(value) {
+        this.$store.commit("updatePassengerTypes", value);
+      },
+    },
   },
 
   methods: {
@@ -64,7 +77,9 @@ export default {
       this.$store.commit("updatePassengerTypes", newPassengerTypes);
     },
 
-    captureUpdatedPassengerTypes() {},
+    captureUpdatedPassengerTypes() {
+      console.log("captured");
+    },
 
     // captureUpdatedPassengerTypes() {
     //   const newPassengerTypes2 = [...this.passengertypes];
