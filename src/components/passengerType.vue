@@ -1,9 +1,10 @@
 <template>
   <div id="passenger-type">
     <input type="text" placeholder="select passengers" />
-
-    <div v-if="updatePassangerTypes">
-      <p>{{ updatePassangerTypes.count }}</p>
+    <div v-if="updatePassengerTypes">
+      <li v-for="(a, i) in updatePassengerTypes" :key="i">
+        {{ a.typePassenger }} x {{ a.count }}
+      </li>
     </div>
 
     <ul>
@@ -56,7 +57,7 @@ export default {
       },
     },
 
-    updatePassangerTypes: {
+    updatePassengerTypes: {
       get() {
         return this.$store.state.updatePassengerTypes;
       },
