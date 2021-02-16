@@ -1,11 +1,6 @@
 <template>
   <div id="passenger-type">
-    <input
-      type="text"
-      placeholder="select passengers"
-      @click="onChange"
-      v-model="displayedPassengerTypes"
-    />
+    <input type="text" placeholder="select passengers" @click="onChange" />
 
     <ul>
       <li v-for="(passengertype, i) in passengertypes" :key="i">
@@ -56,15 +51,6 @@ export default {
         this.$store.commit("updatePassengerTypes", value);
       },
     },
-
-    displayedPassengerTypes: {
-      get() {
-        return this.$store.state.captureUpdatedPassengerTypes;
-      },
-      set() {
-        this.$store.commit("displayedPassengerTypes");
-      },
-    },
   },
 
   methods: {
@@ -78,13 +64,12 @@ export default {
       this.$store.commit("updatePassengerTypes", newPassengerTypes);
     },
 
-    captureUpdatedPassengerTypes() {
-      const filteredPassengerTypes = [...this.passengertypes];
-      this.$store.commit(
-        "captureUpdatedPassengerTypes",
-        filteredPassengerTypes
-      );
-    },
+    captureUpdatedPassengerTypes() {},
+
+    // captureUpdatedPassengerTypes() {
+    //   const newPassengerTypes2 = [...this.passengertypes];
+    //   this.$store.commit("captureUpdatedPassengerTypes", newPassengerTypes2);
+    // },
   },
 };
 </script>
