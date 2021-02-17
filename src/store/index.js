@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 
 export const store = new Vuex.Store({
+  
   state: {
     journeytypes: [
       {
@@ -24,40 +25,8 @@ export const store = new Vuex.Store({
         price: 10
       }
     ],
-    journeystarts: [
-      {
-        leavingFrom: "Glasgow Airport"
-      },
-      {
-        leavingFrom: "Glasgow Anniesland"
-      },
-      {
-        leavingFrom: "Glasgow Buchanan Bus Station"
-      },
-      {
-        leavingFrom: "Glasgow Cathedral Steet"
-      },
-      {
-        leavingFrom: "ect...."
-      }
-    ],
-    journeydestinations: [
-      {
-        arrivingAt: "Inverness Montague Road"
-      },
-      {
-        arrivingAt: "Inverness Tomnahurich"
-      },
-      {
-        arrivingAt: "Inverary"
-      },
-      {
-        arrivingAt: "Inveraray Brae"
-      },
-      {
-        arrivingAt: "ect...."
-      }
-    ],
+    journeystarts: ["Glasgow Airport", "Glasgow Anniesland", "Glasgow Buchanan Bus Station", "Glasgow Cathedral Steet", "ect...."],
+    journeydestinations: ["Inverness Montague Road", "Inverness Tomnahurich", "Inverary", "Inveraray Brae", "ect...."],
     passengertypes: [
       {
         typePassenger: "Adult",
@@ -92,10 +61,14 @@ export const store = new Vuex.Store({
         count: 0
       }
     ],
+  
+    
 
     selectedJourneyType: "single / return",
     selectedDate: new Date().toISOString().slice(0, 10),
-    updatePassengerTypes: []
+    updatePassengerTypes: [],
+    
+ 
   },
   getters: {
 
@@ -112,5 +85,11 @@ export const store = new Vuex.Store({
     updatePassengerTypes(state, updatePassengerTypes) {
       state.updatePassengerTypes = updatePassengerTypes.filter((x) => x.count >= 1);
     },
+
+    updateSearch(state, updateSearch) {
+      state.updateSearch = updateSearch;
+    },
   },
+
+
 });

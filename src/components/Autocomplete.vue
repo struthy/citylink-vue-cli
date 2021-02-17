@@ -44,12 +44,6 @@
 </template>
 <script>
 export default {
-  computed: {
-    journeystarts() {
-      return this.$store.state.journeystarts;
-    },
-  },
-
   props: {
     formLabel: String,
     items: {
@@ -73,6 +67,8 @@ export default {
       arrowCounter: 0,
     };
   },
+
+  computed: {},
 
   methods: {
     onChange() {

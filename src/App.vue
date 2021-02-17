@@ -4,27 +4,9 @@
       <journey-type></journey-type>
 
       <div v-if="selectedJourneyType == 'single / return'" id="single-journey">
-        <auto-complete
-          form-label="From"
-          :items="[
-            'Glasgow Airport',
-            'Glasgow Anniesland',
-            'Glasgow Buchanan Bus Station',
-            'Glasgow Cathedral Steet',
-            'ect....',
-          ]"
-        />
+        <auto-complete form-label="From" :items="this.journeystarts" />
 
-        <auto-complete
-          form-label="To"
-          :items="[
-            'Inverness Montague Road',
-            'Inverness Tomnahurich',
-            'Inverary',
-            'Inveraray Brae',
-            'ect....',
-          ]"
-        />
+        <auto-complete form-label="To" :items="this.journeystarts" />
 
         <datepicker
           v-model="selectedDate"
@@ -67,8 +49,8 @@ export default {
   },
 
   computed: {
-    journeytypes() {
-      return this.$store.state.journeytypes;
+    journeystarts() {
+      return this.$store.state.journeystarts;
     },
 
     saleJourneytypes() {

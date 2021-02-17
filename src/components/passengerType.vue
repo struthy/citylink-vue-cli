@@ -1,11 +1,11 @@
 <template>
   <div id="passenger-type">
     <h4>Passengers selected</h4>
-    <div v-if="updatePassengerTypes">
+    <ul v-if="updatePassengerTypes" class="">
       <li v-for="(a, i) in updatePassengerTypes" :key="i">
-        {{ a.typePassenger }} x {{ a.count }}
+        {{ a.typePassenger }} x {{ a.count }},
       </li>
-    </div>
+    </ul>
 
     <ul>
       <li v-for="(passengertype, i) in passengertypes" :key="i">
@@ -81,11 +81,6 @@ export default {
     captureUpdatedPassengerTypes() {
       console.log("captured");
     },
-
-    // captureUpdatedPassengerTypes() {
-    //   const newPassengerTypes2 = [...this.passengertypes];
-    //   this.$store.commit("captureUpdatedPassengerTypes", newPassengerTypes2);
-    // },
   },
 };
 </script>
