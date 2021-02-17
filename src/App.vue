@@ -7,7 +7,7 @@
       <div v-if="selectedJourneyType == 'single / return'" id="single-journey">
         <auto-complete form-label="From" :items="this.journeystarts" />
         <hr />
-        <auto-complete form-label="To" :items="this.journeyends" />
+        <auto-complete form-label="To" :items="this.journeydestinations" />
         <hr />
         <datepicker
           v-model="selectedDate"
@@ -52,6 +52,10 @@ export default {
   computed: {
     journeystarts() {
       return this.$store.state.journeystarts;
+    },
+
+    journeydestinations() {
+      return this.$store.state.journeydestinations;
     },
 
     selectedJourneyType: {
