@@ -67,7 +67,8 @@ export const store = new Vuex.Store({
     selectedJourneyType: "single / return",
     selectedDate: new Date().toISOString().slice(0, 10),
     updatePassengerTypes: [],
-    
+    searchAutocomplete: "",
+
  
   },
   getters: {
@@ -86,8 +87,8 @@ export const store = new Vuex.Store({
       state.updatePassengerTypes = updatePassengerTypes.filter((x) => x.count >= 1);
     },
 
-    updateSearch(state, updateSearch) {
-      state.updateSearch = updateSearch;
+    updateJourneyStart(state, searchAutocomplete) {
+      state.searchAutocomplete = searchAutocomplete;
     },
   },
 

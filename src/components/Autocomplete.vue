@@ -1,20 +1,13 @@
 <template>
-  <div id="journey-start">
+  <div>
     <div class="widget__select">
-      <!-- <ul>
-        <li><b>data coming from store as example</b></li>
-        <li li v-for="(journeystart, i) in journeystarts" :key="'a' + i">
-          {{ journeystart.leavingFrom }}
-        </li>
-      </ul> -->
-
       <div class="autocomplete">
         <h3>{{ formLabel }}</h3>
         <input
           type="text"
           @click="onChange"
           @input="onChange"
-          v-model="search"
+          v-model="searchAutocomplete"
           @keydown.down="onArrowDown"
           @keydown.up="onArrowUp"
           @keydown.enter.prevent="onEnter"
@@ -62,18 +55,26 @@ export default {
     return {
       isOpen: false,
       results: [],
-      search: "",
       isLoading: false,
       arrowCounter: 0,
     };
   },
 
-  computed: {},
+  computed: {
+    searchAutocomplete: {
+      get() {
+        return this.$store.state.searchAutocomplete;
+      },
+      set(value) {
+        this.$store.commit("updateJourneyStart", value);
+      },
+    },
+  },
 
   methods: {
     onChange() {
       // Let's warn the parent that a change was made
-      this.$emit("input", this.search);
+      this.$emit("input", this.searchAutocomplete);
 
       // Is the data given by an outside ajax request?
       if (this.isAsync) {
@@ -88,11 +89,13 @@ export default {
     filterResults() {
       // first uncapitalize all the things
       this.results = this.items.filter((item) => {
-        return item.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+        return (
+          item.toLowerCase().indexOf(this.searchAutocomplete.toLowerCase()) > -1
+        );
       });
     },
     setResult(result) {
-      this.search = result;
+      this.searchAutocomplete = result;
       this.isOpen = false;
     },
     onArrowDown() {
@@ -106,7 +109,7 @@ export default {
       }
     },
     onEnter() {
-      this.search = this.results[this.arrowCounter];
+      this.searchAutocomplete = this.results[this.arrowCounter];
       this.isOpen = false;
       this.arrowCounter = -1;
     },

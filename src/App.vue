@@ -6,16 +6,14 @@
       <div v-if="selectedJourneyType == 'single / return'" id="single-journey">
         <auto-complete form-label="From" :items="this.journeystarts" />
 
-        <auto-complete form-label="To" :items="this.journeystarts" />
-
-        <datepicker
+        <!-- <datepicker
           v-model="selectedDate"
           placeholder="Select Date"
           wrapper-class="custom-css"
         >
         </datepicker>
 
-        <passenger-type></passenger-type>
+        <passenger-type></passenger-type> -->
       </div>
 
       <div v-if="selectedJourneyType == 'Multi journey'" id="multi-journey">
@@ -31,17 +29,17 @@
 
 <script>
 import JourneyType from "./components/journeyType.vue";
-import passengerType from "./components/passengerType.vue";
+// import passengerType from "./components/passengerType.vue";
 import autocomplete from "./components/Autocomplete.vue";
-import Datepicker from "vuejs-datepicker";
+// import Datepicker from "vuejs-datepicker";
 
 export default {
   name: "app",
   components: {
     "journey-type": JourneyType,
-    "passenger-type": passengerType,
+    // "passenger-type": passengerType,
     "auto-complete": autocomplete,
-    Datepicker,
+    // Datepicker,
   },
 
   data: function() {
@@ -51,10 +49,6 @@ export default {
   computed: {
     journeystarts() {
       return this.$store.state.journeystarts;
-    },
-
-    saleJourneytypes() {
-      return this.$store.getters.saleJourneytypes;
     },
 
     selectedJourneyType: {
