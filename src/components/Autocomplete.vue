@@ -7,7 +7,7 @@
           type="text"
           @click="onChange"
           @input="onChange"
-          v-model="searchAutocomplete"
+          :value="value"
           @keydown.down="onArrowDown"
           @keydown.up="onArrowUp"
           @keydown.enter.prevent="onEnter"
@@ -38,6 +38,7 @@
 <script>
 export default {
   props: {
+    value: String,
     formLabel: String,
     items: {
       type: Array,
@@ -61,9 +62,17 @@ export default {
   },
 
   computed: {
+    journeystarts() {
+      return this.$store.state.journeystarts;
+    },
+
+    journeydestinations() {
+      return this.$store.state.journeydestinations;
+    },
+
     searchAutocomplete: {
       get() {
-        return this.$store.state.searchAutocomplete;
+        return this.$store.state.value;
       },
       set(value) {
         this.$store.commit("updateJourneyStart", value);
@@ -72,9 +81,9 @@ export default {
   },
 
   methods: {
-    onChange() {
+    onChange(e) {
       // Let's warn the parent that a change was made
-      this.$emit("input", this.searchAutocomplete);
+      this.$emit("input", e.target.value);
 
       // Is the data given by an outside ajax request?
       if (this.isAsync) {
@@ -89,13 +98,11 @@ export default {
     filterResults() {
       // first uncapitalize all the things
       this.results = this.items.filter((item) => {
-        return (
-          item.toLowerCase().indexOf(this.searchAutocomplete.toLowerCase()) > -1
-        );
+        return item.toLowerCase().indexOf(this.value.toLowerCase()) > -1;
       });
     },
     setResult(result) {
-      this.searchAutocomplete = result;
+      this.value = result;
       this.isOpen = false;
     },
     onArrowDown() {
@@ -109,7 +116,7 @@ export default {
       }
     },
     onEnter() {
-      this.searchAutocomplete = this.results[this.arrowCounter];
+      this.value = this.results[this.arrowCounter];
       this.isOpen = false;
       this.arrowCounter = -1;
     },

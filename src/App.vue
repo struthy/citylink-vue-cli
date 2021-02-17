@@ -5,9 +5,17 @@
       <hr />
 
       <div v-if="selectedJourneyType == 'single / return'" id="single-journey">
-        <auto-complete form-label="From" :items="this.journeystarts" />
+        <auto-complete
+          form-label="From"
+          value="searchJourneyStarts"
+          :items="this.journeystarts"
+        />
         <hr />
-        <auto-complete form-label="To" :items="this.journeydestinations" />
+        <auto-complete
+          form-label="To"
+          value="searchJourneyDestinations"
+          :items="this.journeydestinations"
+        />
         <hr />
         <datepicker
           v-model="selectedDate"
