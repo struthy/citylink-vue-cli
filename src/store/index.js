@@ -61,16 +61,12 @@ export const store = new Vuex.Store({
         count: 0
       }
     ],
-  
-    
-
     selectedJourneyType: "single / return",
-    selectedDate: new Date().toISOString().slice(0, 10),
+    selectedLeavingDate: new Date().toISOString().slice(0, 10),
+    selectedReturnDate: new Date().toISOString().slice(0, 10),
     updatePassengerTypes: [],
     searchJourneysOut: "",
     searchJourneysArrive: "",
-
- 
   },
   getters: {
 
@@ -80,8 +76,12 @@ export const store = new Vuex.Store({
       state.selectedJourneyType = selectedJourneyType;
     },
 
-    updateSelectedDate(state, selectedDate) {
-      state.selectedDate = selectedDate;
+    updateSelectedLeavingDate(state, selectedReturnDate) {
+      state.selectedReturnDate = selectedReturnDate;
+    },
+
+    updateSelectedReturnDate(state, selectedLeavingDate) {
+      state.selectedLeavingDate = selectedLeavingDate;
     },
 
     updatePassengerTypes(state, updatePassengerTypes) {

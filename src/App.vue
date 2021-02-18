@@ -13,13 +13,21 @@
 
         <hr />
         <datepicker
-          v-model="selectedDate"
-          placeholder="Select Date"
+          v-model="selectedLeavingDate"
+          placeholder="Select Leaving Date"
           wrapper-class="custom-css"
         >
         </datepicker>
         <hr />
         <passenger-type></passenger-type>
+        <hr />
+
+        <datepicker
+          v-model="selectedReturnDate"
+          placeholder="Select Return Date"
+          wrapper-class="custom-css"
+        >
+        </datepicker>
       </div>
 
       <div v-if="selectedJourneyType == 'Multi journey'" id="multi-journey">
@@ -72,12 +80,21 @@ export default {
       },
     },
 
-    selectedDate: {
+    selectedLeavingDate: {
       get() {
-        return this.$store.state.selectedDate;
+        return this.$store.state.selectedLeavingDate;
       },
       set(value) {
-        this.$store.commit("updateSelectedDate", value);
+        this.$store.commit("updateSelectedLeavingDate", value);
+      },
+    },
+
+    selectedReturnDate: {
+      get() {
+        return this.$store.state.selectedReturnDate;
+      },
+      set(value) {
+        this.$store.commit("updateSelectedReturnDate", value);
       },
     },
   },
