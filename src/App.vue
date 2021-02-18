@@ -5,9 +5,12 @@
       <hr />
 
       <div v-if="selectedJourneyType == 'single / return'" id="single-journey">
-        <auto-complete form-label="From" :items="this.journeystarts" />
+        <journeys-out form-label="From" :items="this.journeystarts" />
+
         <hr />
-        <auto-complete form-label="To" :items="this.journeydestinations" />
+
+        <journeys-arrive form-label="To" :items="this.journeydestinations" />
+
         <hr />
         <datepicker
           v-model="selectedDate"
@@ -33,7 +36,8 @@
 <script>
 import JourneyType from "./components/journeyType.vue";
 import passengerType from "./components/passengerType.vue";
-import autocomplete from "./components/Autocomplete.vue";
+import JourneysOut from "./components/JourneysOut.vue";
+import JourneysArrive from "./components/JourneysArrive.vue";
 import Datepicker from "vuejs-datepicker";
 
 export default {
@@ -41,7 +45,8 @@ export default {
   components: {
     "journey-type": JourneyType,
     "passenger-type": passengerType,
-    "auto-complete": autocomplete,
+    "journeys-out": JourneysOut,
+    "journeys-arrive": JourneysArrive,
     Datepicker,
   },
 
