@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <form id="journey-details">
+    <form id="journey-details" @submit.prevent="processForm">
       <journey-type></journey-type>
       <hr />
 
@@ -12,14 +12,18 @@
         <journeys-arrive form-label="To" :items="this.journeydestinations" />
 
         <hr />
+
         <datepicker
           v-model="selectedLeavingDate"
           placeholder="Select Leaving Date"
           wrapper-class="custom-css"
         >
         </datepicker>
+
         <hr />
+
         <passenger-type></passenger-type>
+
         <hr />
 
         <datepicker
@@ -28,6 +32,15 @@
           wrapper-class="custom-css"
         >
         </datepicker>
+
+        <hr />
+
+        <div class="find-tickets">
+          <p>Find Tickets Text</p>
+          <button type="submit" class="button is-danger">Submit</button>
+        </div>
+
+        <hr />
       </div>
 
       <div v-if="selectedJourneyType == 'Multi journey'" id="multi-journey">
@@ -96,6 +109,18 @@ export default {
       set(value) {
         this.$store.commit("updateSelectedReturnDate", value);
       },
+    },
+  },
+
+  methods: {
+    processForm: function() {
+      console.log({
+        selectedJourneyType: this.$store.state.selectedJourneyType,
+        selectedReturnDate: this.$store.state.selectedReturnDate,
+        selectedLeavingDate: this.$store.state.selectedLeavingDate,
+        updatePassengerTypes: this.$store.state.updatePassengerTypes,
+      });
+      alert("Processing! ");
     },
   },
 };

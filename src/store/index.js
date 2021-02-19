@@ -67,6 +67,7 @@ export const store = new Vuex.Store({
     updatePassengerTypes: [],
     searchJourneysOut: "",
     searchJourneysArrive: "",
+ 
   },
   getters: {
 
@@ -80,8 +81,8 @@ export const store = new Vuex.Store({
       state.selectedReturnDate = selectedReturnDate;
     },
 
-    updateSelectedReturnDate(state, selectedLeavingDate) {
-      state.selectedLeavingDate = selectedLeavingDate;
+    updateSelectedReturnDate(state, selectedReturnDate) {
+      state.selectedReturnDate = selectedReturnDate;
     },
 
     updatePassengerTypes(state, updatePassengerTypes) {
