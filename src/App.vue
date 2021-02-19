@@ -116,8 +116,10 @@ export default {
     processForm: function() {
       console.log({
         selectedJourneyType: this.$store.state.selectedJourneyType,
-        selectedReturnDate: this.$store.state.selectedReturnDate,
+        searchJourneysOut: this.$store.state.searchJourneysOut,
+        searchJourneysArrive: this.$store.state.searchJourneysArrive,
         selectedLeavingDate: this.$store.state.selectedLeavingDate,
+        selectedReturnDate: this.$store.state.selectedReturnDate,
         updatePassengerTypes: this.$store.state.updatePassengerTypes,
       });
       alert("Processing! ");

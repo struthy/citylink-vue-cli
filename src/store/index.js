@@ -77,8 +77,8 @@ export const store = new Vuex.Store({
       state.selectedJourneyType = selectedJourneyType;
     },
 
-    updateSelectedLeavingDate(state, selectedReturnDate) {
-      state.selectedReturnDate = selectedReturnDate;
+    updateSelectedLeavingDate(state, selectedLeavingDate) {
+      state.selectedLeavingDate = selectedLeavingDate;
     },
 
     updateSelectedReturnDate(state, selectedReturnDate) {
