@@ -10,19 +10,15 @@ export const store = new Vuex.Store({
     journeytypes: [
       {
         type: "single / return",
-        price: 25
       },
       {
         type: "Multi journey",
-        price: 20
       },
       {
         type: "Explorer passes",
-        price: 15
       },
       {
         type: "Redeem your pass",
-        price: 10
       }
     ],
     journeystarts: ["Glasgow Airport", "Glasgow Anniesland", "Glasgow Buchanan Bus Station", "Glasgow Cathedral Steet", "ect...."],

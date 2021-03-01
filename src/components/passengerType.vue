@@ -1,13 +1,18 @@
 <template>
   <div class="passengers" id="passenger-type">
     <label class="passengers__label">Passengers</label>
-    <ul v-if="updatePassengerTypes" class="passengers__selected">
+    <ul
+      v-show="updatePassengerTypes"
+      class="passengers__selected"
+      @click="isOpen = true"
+      @input="isOpen = true"
+    >
       <li v-for="(a, i) in updatePassengerTypes" :key="i">
         {{ a.typePassenger }} x {{ a.count }},
       </li>
     </ul>
 
-    <ul class="passenger__types">
+    <ul class="passenger__types" v-if="isOpen">
       <li
         class="passenger"
         v-for="(passengertype, i) in passengertypes"
@@ -38,7 +43,8 @@
 
       <li>
         <button
-          @click.prevent="captureUpdatedPassengerTypes"
+          @click="isOpen = false"
+          @input="isOpen = false"
           style="margin-top: 30px;"
         >
           Done
