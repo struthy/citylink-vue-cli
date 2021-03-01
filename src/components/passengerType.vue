@@ -8,7 +8,11 @@
     </ul>
 
     <ul class="passenger__types">
-      <li v-for="(passengertype, i) in passengertypes" :key="i">
+      <li
+        class="passenger"
+        v-for="(passengertype, i) in passengertypes"
+        :key="i"
+      >
         <span>{{ passengertype.typePassenger }}</span>
 
         <div class="passenger-count__container">

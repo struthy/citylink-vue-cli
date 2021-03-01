@@ -1,9 +1,13 @@
 .passengers {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .passengers__selected {
   list-style: none;
   margin: 0;
+
   padding: 0;
   li {
     display: inline-block;
@@ -11,19 +15,26 @@
 }
 
 .passengers__label {
-  margin-right: 20px;
+  width: fit-content;
 }
 
 .passenger__types {
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .passengers__selected {
   border: 1px solid white;
   color: white;
   font-size: 14px;
-  padding: 3px;
-  width: 100%;
+  flex: 1 1 70%;
+  display: inline-flex;
+}
+
+.passenger {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

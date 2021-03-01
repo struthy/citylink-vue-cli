@@ -42,7 +42,9 @@
 .widget__options--level-3 {
   display: flex;
   flex: 1 1 100%;
-  background-color: red;
+  background-color: black;
+  justify-content: center;
+  color: white;
 }
 
 .widget__level-2-center {
