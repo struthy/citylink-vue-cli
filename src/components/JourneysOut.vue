@@ -1,38 +1,30 @@
 <template>
-  <div>
-    <div class="widget__select">
-      <div class="autocomplete">
-        <h3>{{ formLabel }}</h3>
-        <input
-          type="text"
-          @click="onChange"
-          @input="onChange"
-          v-model="searchJourneysOut"
-          @keydown.down="onArrowDown"
-          @keydown.up="onArrowUp"
-          @keydown.enter.prevent="onEnter"
-        />
-        <ul
-          id="autocomplete-results"
-          v-show="isOpen"
-          class="autocomplete-results"
-        >
-          <li class="loading" v-if="isLoading">
-            Loading results...
-          </li>
-          <li
-            v-else
-            v-for="(result, i) in results"
-            :key="i"
-            @click="setResult(result)"
-            class="autocomplete-result"
-            :class="{ 'is-active': i === arrowCounter }"
-          >
-            {{ result }}
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div class="widget__select autocomplete">
+    <label>{{ formLabel }}</label>
+    <input
+      type="text"
+      @click="onChange"
+      @input="onChange"
+      v-model="searchJourneysOut"
+      @keydown.down="onArrowDown"
+      @keydown.up="onArrowUp"
+      @keydown.enter.prevent="onEnter"
+    />
+    <ul id="autocomplete-results" v-show="isOpen" class="autocomplete-results">
+      <li class="loading" v-if="isLoading">
+        Loading results...
+      </li>
+      <li
+        v-else
+        v-for="(result, i) in results"
+        :key="i"
+        @click="setResult(result)"
+        class="autocomplete-result"
+        :class="{ 'is-active': i === arrowCounter }"
+      >
+        {{ result }}
+      </li>
+    </ul>
   </div>
 </template>
 <script>
@@ -140,28 +132,5 @@ export default {
 
 <style lang="scss">
 .autocomplete {
-  position: relative;
-}
-
-.autocomplete-results {
-  padding: 0;
-  margin: 0;
-  border: 1px solid #eeeeee;
-  height: 120px;
-  overflow: auto;
-  width: 100%;
-}
-
-.autocomplete-result {
-  list-style: none;
-  text-align: left;
-  padding: 4px 2px;
-  cursor: pointer;
-}
-
-.autocomplete-result.is-active,
-.autocomplete-result:hover {
-  background-color: #4aae9b;
-  color: white;
 }
 </style>

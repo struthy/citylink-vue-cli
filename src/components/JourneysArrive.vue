@@ -2,7 +2,7 @@
   <div>
     <div class="widget__select">
       <div class="autocomplete">
-        <h3>{{ formLabel }}</h3>
+        <label>{{ formLabel }}</label>
         <input
           type="text"
           @click="onChange"

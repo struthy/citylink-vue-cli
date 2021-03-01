@@ -1,31 +1,31 @@
 <template>
-  <div id="app">
-    <form id="journey-details" @submit.prevent="processForm">
-      <journey-type></journey-type>
-      <hr />
+  <div id="app" class="widget">
+    <form
+      class="widget__container"
+      id="journey-details"
+      @submit.prevent="processForm"
+    >
+      <div class="widget__type">
+        <journey-type></journey-type>
+      </div>
 
-      <div v-if="selectedJourneyType == 'single / return'" id="single-journey">
+      <div
+        class="widget__options widget__options--level-1"
+        v-if="selectedJourneyType == 'single / return'"
+        id="single-journey"
+      >
         <journeys-out form-label="From" :items="this.journeystarts" />
 
-        <hr />
-
         <journeys-arrive form-label="To" :items="this.journeydestinations" />
-
-        <hr />
-
         <datepicker
           v-model="selectedLeavingDate"
           placeholder="Select Leaving Date"
           wrapper-class="custom-css"
         >
         </datepicker>
+      </div>
 
-        <hr />
-
-        <passenger-type></passenger-type>
-
-        <hr />
-
+      <div class="widget__options widget__options--level-2">
         <datepicker
           v-model="selectedReturnDate"
           placeholder="Select Return Date"
@@ -33,14 +33,12 @@
         >
         </datepicker>
 
-        <hr />
+        <passenger-type></passenger-type>
+      </div>
 
-        <div class="find-tickets">
-          <p>Find Tickets Text</p>
-          <button type="submit" class="button is-danger">Submit</button>
-        </div>
-
-        <hr />
+      <div class="widget__find-tickets widget__options--level-3">
+        <p>Find Tickets Text</p>
+        <button type="submit" class="button is-danger">Submit</button>
       </div>
 
       <div v-if="selectedJourneyType == 'Multi journey'" id="multi-journey">
@@ -128,11 +126,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.widget__container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex: 1 1 100%;
-}
-</style>
+<style scoped></style>

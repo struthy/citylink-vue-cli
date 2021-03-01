@@ -1,2 +1,71 @@
-body {
+.widget {
+  display: flex;
+  margin: 0 auto;
+  flex: 1 1 100%;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.widget__container {
+  flex: 0 1 1135px;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.widget__type {
+  display: flex;
+  flex: 0 1 30%;
+}
+
+.widget__select {
+}
+
+.widget__options {
+}
+
+.widget__options--level-1 {
+  display: flex;
+  flex: 1 1 70%;
+  justify-content: space-between;
+  background-color: #4aae9b;
+}
+
+.widget__options--level-2 {
+  display: flex;
+  flex: 1 1 100%;
+  background-color: blue;
+}
+
+.widget__options--level-3 {
+  display: flex;
+  flex: 1 1 100%;
+  background-color: red;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete-results {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #eeeeee;
+  height: 120px;
+  overflow: auto;
+  width: 100%;
+  position: absolute;
+}
+
+.autocomplete-result {
+  list-style: none;
+  text-align: left;
+  padding: 4px 2px;
+  cursor: pointer;
+}
+
+.autocomplete-result.is-active,
+.autocomplete-result:hover {
+  background-color: #4aae9b;
+  color: white;
 }

@@ -1,16 +1,14 @@
 <template>
-  <div id="journey-type">
-    <div class="widget__select">
-      <label class="widget__select--label">Type</label>
-      <select v-model="selectedJourneyType">
-        <option
-          v-for="(journeytype, i) in journeytypes"
-          :key="'journeytypes' + i"
-        >
-          {{ journeytype.type }}
-        </option>
-      </select>
-    </div>
+  <div class="widget__select">
+    <label class="widget__select--label">Type</label>
+    <select v-model="selectedJourneyType">
+      <option
+        v-for="(journeytype, i) in journeytypes"
+        :key="'journeytypes' + i"
+      >
+        {{ journeytype.type }}
+      </option>
+    </select>
   </div>
 </template>
 <script>
