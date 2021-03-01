@@ -138,7 +138,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .autocomplete {
   position: relative;
 }
@@ -146,7 +146,7 @@ export default {
 .autocomplete-results {
   padding: 0;
   margin: 0;
-  border: 1px solid #eeeeee;
+  border: 1px solid $blue;
   height: 120px;
   overflow: auto;
   width: 100%;
@@ -161,7 +161,7 @@ export default {
 
 .autocomplete-result.is-active,
 .autocomplete-result:hover {
-  background-color: #4aae9b;
-  color: white;
+  background-color: $blue;
+  color: $blue;
 }
 </style>

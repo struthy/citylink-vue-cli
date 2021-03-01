@@ -138,7 +138,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .autocomplete {
   position: relative;
 }

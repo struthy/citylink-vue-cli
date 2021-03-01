@@ -1,0 +1,55 @@
+/* FONTS */
+
+/* ==========================================================================
+   SCSS Variables
+   ========================================================================== */
+
+/* COLOURS */
+
+$black: #000000;
+$grey: #8a8d8f;
+$ui-grey: #b7bbc0;
+$line-grey: #d4dadc;
+$line-blue: #cadce4;
+$off-grey: #979797;
+$off-white: #f7f7f7;
+$light-grey: #eeeeee;
+$med-grey: #d8d8d8;
+$dark-grey: #323232;
+$bg-grey: #f3f4f6;
+$text-blue-grey: #6e82a3;
+$off-blue: #2994cc;
+$card-grey: #121e2e;
+$current-grey: #738391;
+
+$highlight: #9dd4cd;
+
+/* citylink branding */
+
+$black: #323232;
+$dark-blue: #140b95;
+$blue: #0085ca;
+$blue-grey: #3e495a;
+$yellow: #ffd100;
+$orange: #e35305;
+$green: #7cbf40;
+$light-violet: #ecebf6;
+
+%base-font-rendering {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+  font-weight: normal;
+  font-style: normal;
+}
+
+%serif {
+  @extend %base-font-rendering;
+  font-family: serif;
+  font-style: normal;
+}
+
+%sans {
+  @extend %base-font-rendering;
+  font-family: frank-new, sans-serif;
+  font-style: normal;
+}
