@@ -25,22 +25,37 @@
         </datepicker>
       </div>
 
-      <div class="widget__options widget__options--level-2">
-        <datepicker
-          v-model="selectedReturnDate"
-          placeholder="Select Return Date"
-          wrapper-class="custom-css"
-        >
-        </datepicker>
+      <div
+        class="widget__options widget__options--level-2"
+        v-if="selectedJourneyType == 'single / return'"
+      >
+        <div class="widget__level-2-center">
+          <datepicker
+            v-model="selectedReturnDate"
+            placeholder="Select Return Date"
+            wrapper-class="datapicker"
+          >
+          </datepicker>
 
-        <passenger-type></passenger-type>
+          <passenger-type></passenger-type>
+        </div>
       </div>
 
-      <div class="widget__find-tickets widget__options--level-3">
+      <div
+        class="widget__find-tickets widget__options--level-3"
+        v-if="selectedJourneyType == 'single / return'"
+      >
         <p>Find Tickets Text</p>
         <button type="submit" class="button is-danger">Submit</button>
       </div>
-
+      <!-- other journeys -->
+      <!-- other journeys -->
+      <!-- other journeys -->
+      <!-- other journeys -->
+      <!-- other journeys -->
+      <!-- other journeys -->
+      <!-- other journeys -->
+      <!-- other journeys -->
       <div v-if="selectedJourneyType == 'Multi journey'" id="multi-journey">
         <h3>Multi Journey</h3>
       </div>

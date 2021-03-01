@@ -16,6 +16,7 @@
 .widget__type {
   display: flex;
   flex: 0 1 30%;
+  background-color: magenta;
 }
 
 .widget__select {
@@ -35,6 +36,7 @@
   display: flex;
   flex: 1 1 100%;
   background-color: blue;
+  justify-content: center;
 }
 
 .widget__options--level-3 {
@@ -43,29 +45,8 @@
   background-color: red;
 }
 
-.autocomplete {
-  position: relative;
-}
-
-.autocomplete-results {
-  padding: 0;
-  margin: 0;
-  border: 1px solid #eeeeee;
-  height: 120px;
-  overflow: auto;
-  width: 100%;
-  position: absolute;
-}
-
-.autocomplete-result {
-  list-style: none;
-  text-align: left;
-  padding: 4px 2px;
-  cursor: pointer;
-}
-
-.autocomplete-result.is-active,
-.autocomplete-result:hover {
-  background-color: #4aae9b;
-  color: white;
+.widget__level-2-center {
+  flex: 0 1 80%;
+  align-self: center;
+  display: flex;
 }

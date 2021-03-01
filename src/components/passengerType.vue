@@ -1,13 +1,13 @@
 <template>
-  <div id="passenger-type">
-    <h4>Passengers selected</h4>
-    <ul v-if="updatePassengerTypes" class="">
+  <div class="passengers" id="passenger-type">
+    <label class="passengers__label">Passengers</label>
+    <ul v-if="updatePassengerTypes" class="passengers__selected">
       <li v-for="(a, i) in updatePassengerTypes" :key="i">
         {{ a.typePassenger }} x {{ a.count }},
       </li>
     </ul>
 
-    <ul>
+    <ul class="passenger__types">
       <li v-for="(passengertype, i) in passengertypes" :key="i">
         <span>{{ passengertype.typePassenger }}</span>
 
@@ -31,13 +31,16 @@
           </button>
         </div>
       </li>
+
+      <li>
+        <button
+          @click.prevent="captureUpdatedPassengerTypes"
+          style="margin-top: 30px;"
+        >
+          Done
+        </button>
+      </li>
     </ul>
-    <button
-      @click.prevent="captureUpdatedPassengerTypes"
-      style="margin-top: 30px;"
-    >
-      Done
-    </button>
   </div>
 </template>
 <script>

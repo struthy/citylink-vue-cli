@@ -1,0 +1,29 @@
+.passengers {
+}
+
+.passengers__selected {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+  }
+}
+
+.passengers__label {
+  margin-right: 20px;
+}
+
+.passenger__types {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.passengers__selected {
+  border: 1px solid white;
+  color: white;
+  font-size: 14px;
+  padding: 3px;
+  width: 100%;
+}
