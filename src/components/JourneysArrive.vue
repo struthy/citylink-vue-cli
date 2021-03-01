@@ -1,38 +1,30 @@
 <template>
-  <div>
-    <div class="widget__select">
-      <div class="autocomplete">
-        <label>{{ formLabel }}</label>
-        <input
-          type="text"
-          @click="onChange"
-          @input="onChange"
-          v-model="searchJourneysArrive"
-          @keydown.down="onArrowDown"
-          @keydown.up="onArrowUp"
-          @keydown.enter.prevent="onEnter"
-        />
-        <ul
-          id="autocomplete-results"
-          v-show="isOpen"
-          class="autocomplete-results"
-        >
-          <li class="loading" v-if="isLoading">
-            Loading results...
-          </li>
-          <li
-            v-else
-            v-for="(result, i) in results"
-            :key="i"
-            @click="setResult(result)"
-            class="autocomplete-result"
-            :class="{ 'is-active': i === arrowCounter }"
-          >
-            {{ result }}
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div class="autocomplete">
+    <label>{{ formLabel }}</label>
+    <input
+      type="text"
+      @click="onChange"
+      @input="onChange"
+      v-model="searchJourneysArrive"
+      @keydown.down="onArrowDown"
+      @keydown.up="onArrowUp"
+      @keydown.enter.prevent="onEnter"
+    />
+    <ul id="autocomplete-results" v-show="isOpen" class="autocomplete-results">
+      <li class="loading" v-if="isLoading">
+        Loading results...
+      </li>
+      <li
+        v-else
+        v-for="(result, i) in results"
+        :key="i"
+        @click="setResult(result)"
+        class="autocomplete-result"
+        :class="{ 'is-active': i === arrowCounter }"
+      >
+        {{ result }}
+      </li>
+    </ul>
   </div>
 </template>
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="widget__select autocomplete">
+  <div class="autocomplete">
     <label>{{ formLabel }}</label>
     <input
       type="text"

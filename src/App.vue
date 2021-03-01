@@ -20,7 +20,7 @@
         <datepicker
           v-model="selectedLeavingDate"
           placeholder="Select Leaving Date"
-          wrapper-class="custom-css"
+          wrapper-class="datepicker"
         >
         </datepicker>
       </div>
@@ -33,7 +33,7 @@
           <datepicker
             v-model="selectedReturnDate"
             placeholder="Select Return Date"
-            wrapper-class="datapicker"
+            wrapper-class="datepicker"
           >
           </datepicker>
 
