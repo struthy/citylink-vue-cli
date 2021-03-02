@@ -1,30 +1,37 @@
 <template>
   <div class="autocomplete">
-    <label>{{ formLabel }}</label>
-    <input
-      type="text"
-      @click="onChange"
-      @input="onChange"
-      v-model="searchJourneysOut"
-      @keydown.down="onArrowDown"
-      @keydown.up="onArrowUp"
-      @keydown.enter.prevent="onEnter"
-    />
-    <ul id="autocomplete-results" v-show="isOpen" class="autocomplete-results">
-      <li class="loading" v-if="isLoading">
-        Loading results...
-      </li>
-      <li
-        v-else
-        v-for="(result, i) in results"
-        :key="i"
-        @click="setResult(result)"
-        class="autocomplete-result"
-        :class="{ 'is-active': i === arrowCounter }"
+    <div class="autocomplete__decoration">
+      <label class="autocomplete__label">{{ formLabel }}</label>
+      <input
+        class="autocomplete__input"
+        type="text"
+        @click="onChange"
+        @input="onChange"
+        v-model="searchJourneysOut"
+        @keydown.down="onArrowDown"
+        @keydown.up="onArrowUp"
+        @keydown.enter.prevent="onEnter"
+      />
+      <ul
+        id="autocomplete-results"
+        v-show="isOpen"
+        class="autocomplete-results"
       >
-        {{ result }}
-      </li>
-    </ul>
+        <li class="loading" v-if="isLoading">
+          Loading results...
+        </li>
+        <li
+          v-else
+          v-for="(result, i) in results"
+          :key="i"
+          @click="setResult(result)"
+          class="autocomplete-result"
+          :class="{ 'is-active': i === arrowCounter }"
+        >
+          {{ result }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>

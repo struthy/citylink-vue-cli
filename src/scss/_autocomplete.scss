@@ -4,26 +4,42 @@
   width: 100%;
 }
 
+.autocomplete__label {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.autocomplete__input {
+  width: calc(100% - 80px);
+}
+
 .autocomplete-results {
   padding: 0;
   margin: 0;
-  border: 1px solid #eeeeee;
-  height: 120px;
+  border: 0;
+  height: 150px;
   overflow: auto;
   width: 100%;
   position: absolute;
   background-color: white;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .autocomplete-result {
   list-style: none;
   text-align: left;
-  padding: 4px 2px;
+  padding: 4px 10px;
   cursor: pointer;
 }
 
 .autocomplete-result.is-active,
 .autocomplete-result:hover {
-  background-color: #4aae9b;
-  color: white;
+  color: $blue;
+}
+
+.autocomplete__decoration {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 0;
 }
