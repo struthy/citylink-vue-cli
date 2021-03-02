@@ -17,10 +17,10 @@ body {
   flex-wrap: wrap;
 }
 
-.widget__type {
+.widget__journey-type {
   display: flex;
   flex: 0 1 30%;
-  background-color: magenta;
+  background-color: #777;
   padding: 20px 0;
 }
 
@@ -35,13 +35,13 @@ body {
   display: flex;
   flex: 1 1 70%;
   justify-content: space-between;
-  background-color: #4aae9b;
+  background-color: #999;
 }
 
 .widget__options--level-2 {
   display: flex;
   flex: 1 1 100%;
-  background-color: lightslategray;
+  background-color: 333;
   justify-content: center;
 }
 

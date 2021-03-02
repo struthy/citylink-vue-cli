@@ -5,7 +5,7 @@
       id="journey-details"
       @submit.prevent="processForm"
     >
-      <div class="widget__type">
+      <div class="widget__journey-type">
         <journey-type></journey-type>
       </div>
 
@@ -17,12 +17,15 @@
         <journeys-out form-label="From" :items="this.journeystarts" />
 
         <journeys-arrive form-label="To" :items="this.journeydestinations" />
-        <datepicker
-          v-model="selectedLeavingDate"
-          placeholder="Select Leaving Date"
-          wrapper-class="datepicker"
-        >
-        </datepicker>
+
+        <div class="datepicker__decoration">
+          <datepicker
+            v-model="selectedLeavingDate"
+            placeholder="Select Leaving Date"
+            wrapper-class="datepicker"
+          >
+          </datepicker>
+        </div>
       </div>
 
       <div
@@ -33,7 +36,7 @@
           <datepicker
             v-model="selectedReturnDate"
             placeholder="Select Return Date"
-            wrapper-class="datepicker"
+            wrapper-class="datapicker"
           >
           </datepicker>
 

@@ -3,11 +3,19 @@
   //   display: flexbox;
   //   flex: 0 1 40%;
   //   margin-right: 20px;
-
   > {
     width: 100%;
   }
   input {
     width: 100%;
   }
+}
+
+.datepicker__decoration {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin: 0 10px;
+  display: block;
 }
