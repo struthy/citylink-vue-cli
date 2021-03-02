@@ -1,56 +1,62 @@
 <template>
   <div class="passengers" id="passenger-type">
-    <label class="passengers__label">Passengers</label>
-    <ul
-      v-show="updatePassengerTypes"
-      class="passengers__selected"
-      @click="isOpen = true"
-      @input="isOpen = true"
-    >
-      <li v-for="(a, i) in updatePassengerTypes" :key="i">
-        {{ a.typePassenger }} x {{ a.count }},
-      </li>
-    </ul>
-
-    <ul class="passenger__types" v-if="isOpen">
-      <li
-        class="passenger"
-        v-for="(passengertype, i) in passengertypes"
-        :key="i"
+    <div class="passengers__decoration">
+      <label class="passengers__label">Passengers</label>
+      <ul
+        v-show="updatePassengerTypes"
+        class="passengers__selected"
+        @click="isOpen = true"
+        @input="isOpen = true"
       >
-        <span>{{ passengertype.typePassenger }}</span>
+        <li v-for="(a, i) in updatePassengerTypes" :key="i">
+          {{ a.typePassenger }} x {{ a.count }},
+        </li>
+      </ul>
 
-        <div class="passenger-count__container">
-          <button
-            @click.prevent="updatePassangerType(i, passengertypes[i].count - 1)"
-            :disabled="passengertypes[i].count === 0"
-          >
-            -
-          </button>
-          <input
-            type="number"
-            min="0"
-            :value="passengertypes[i].count"
-            @input="updatePassangerType(i, $event.target.value)"
-          />
-          <button
-            @click.prevent="updatePassangerType(i, passengertypes[i].count + 1)"
-          >
-            +
-          </button>
-        </div>
-      </li>
-
-      <li>
-        <button
-          @click="isOpen = false"
-          @input="isOpen = false"
-          style="margin-top: 30px;"
+      <ul class="passenger__types" v-if="isOpen">
+        <li
+          class="passenger"
+          v-for="(passengertype, i) in passengertypes"
+          :key="i"
         >
-          Done
-        </button>
-      </li>
-    </ul>
+          <span>{{ passengertype.typePassenger }}</span>
+
+          <div class="passenger-count__container">
+            <button
+              @click.prevent="
+                updatePassangerType(i, passengertypes[i].count - 1)
+              "
+              :disabled="passengertypes[i].count === 0"
+            >
+              -
+            </button>
+            <input
+              type="number"
+              min="0"
+              :value="passengertypes[i].count"
+              @input="updatePassangerType(i, $event.target.value)"
+            />
+            <button
+              @click.prevent="
+                updatePassangerType(i, passengertypes[i].count + 1)
+              "
+            >
+              +
+            </button>
+          </div>
+        </li>
+
+        <li>
+          <button
+            @click="isOpen = false"
+            @input="isOpen = false"
+            style="margin-top: 30px;"
+          >
+            Done
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>

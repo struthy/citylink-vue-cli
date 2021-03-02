@@ -39,13 +39,15 @@ body {
 }
 
 .widget__options--level-2 {
+  padding: 20px 0;
   display: flex;
   flex: 1 1 100%;
-  background-color: 333;
+  background-color: #666;
   justify-content: center;
 }
 
 .widget__options--level-3 {
+  padding: 20px 0;
   display: flex;
   flex: 1 1 100%;
   background-color: black;
@@ -57,4 +59,11 @@ body {
   flex: 0 1 80%;
   align-self: center;
   display: flex;
+}
+
+.widget__level-3-center {
+  flex: 0 1 20%;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
 }

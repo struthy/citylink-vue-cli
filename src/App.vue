@@ -33,12 +33,14 @@
         v-if="selectedJourneyType == 'single / return'"
       >
         <div class="widget__level-2-center">
-          <datepicker
-            v-model="selectedReturnDate"
-            placeholder="Select Return Date"
-            wrapper-class="datapicker"
-          >
-          </datepicker>
+          <div class="datepicker__decoration datepicker__decoration--50 ">
+            <datepicker
+              v-model="selectedReturnDate"
+              placeholder="Select Return Date"
+              wrapper-class="datepicker"
+            >
+            </datepicker>
+          </div>
 
           <passenger-type></passenger-type>
         </div>
@@ -48,8 +50,10 @@
         class="widget__find-tickets widget__options--level-3"
         v-if="selectedJourneyType == 'single / return'"
       >
-        <p>Find Tickets Text</p>
-        <button type="submit" class="button is-danger">Submit</button>
+        <div class="widget__level-3-center">
+          <p>Find Tickets Text</p>
+          <button type="submit" class="button is-danger">Submit</button>
+        </div>
       </div>
       <!-- other journeys -->
       <!-- other journeys -->

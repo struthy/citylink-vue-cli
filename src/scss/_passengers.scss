@@ -7,7 +7,6 @@
 .passengers__selected {
   list-style: none;
   margin: 0;
-
   padding: 0;
   li {
     display: inline-block;
@@ -16,25 +15,53 @@
 
 .passengers__label {
   width: fit-content;
+  align-self: center;
+  padding: 0 20px;
 }
 
 .passenger__types {
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: calc(100% - 40px);
+  position: absolute;
+  background-color: #fff;
+  top: 38px;
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .passengers__selected {
-  border: 1px solid white;
-  color: white;
+  border: 1px solid black;
+  color: black;
   font-size: 14px;
-  flex: 1 1 70%;
+  width: calc(100% - 120px);
   display: inline-flex;
+  height: 21px;
+  overflow: hidden;
+  align-self: center;
+
+  li {
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .passenger {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.passengers__decoration {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;
 }
