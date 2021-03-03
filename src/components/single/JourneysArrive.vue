@@ -11,6 +11,7 @@
         @keydown.down="onArrowDown"
         @keydown.up="onArrowUp"
         @keydown.enter.prevent="onEnter"
+        placeholder="seach..."
       />
       <ul
         id="autocomplete-results"
@@ -41,13 +42,13 @@ export default {
     items: {
       type: Array,
       required: false,
-      default: () => [],
+      default: () => []
     },
     isAsync: {
       type: Boolean,
       required: false,
-      default: false,
-    },
+      default: false
+    }
   },
 
   data() {
@@ -55,7 +56,7 @@ export default {
       isOpen: false,
       results: [],
       isLoading: false,
-      arrowCounter: 0,
+      arrowCounter: 0
     };
   },
 
@@ -66,8 +67,8 @@ export default {
       },
       set(value) {
         this.$store.commit("updateJourneyDestination", value);
-      },
-    },
+      }
+    }
   },
 
   methods: {
@@ -87,7 +88,7 @@ export default {
 
     filterResults() {
       // first uncapitalize all the things
-      this.results = this.items.filter((item) => {
+      this.results = this.items.filter(item => {
         return (
           item.toLowerCase().indexOf(this.searchJourneysArrive.toLowerCase()) >
           -1
@@ -118,7 +119,7 @@ export default {
         this.isOpen = false;
         this.arrowCounter = -1;
       }
-    },
+    }
   },
   watch: {
     items: function(val, oldValue) {
@@ -127,14 +128,14 @@ export default {
         this.results = val;
         this.isLoading = false;
       }
-    },
+    }
   },
   mounted() {
     document.addEventListener("click", this.handleClickOutside);
   },
   destroyed() {
     document.removeEventListener("click", this.handleClickOutside);
-  },
+  }
 };
 </script>
 

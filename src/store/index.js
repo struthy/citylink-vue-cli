@@ -3,26 +3,36 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-
 export const store = new Vuex.Store({
-  
   state: {
     journeytypes: [
       {
-        type: "single / return",
+        type: "single / return"
       },
       {
-        type: "Multi journey",
+        type: "Multi journey"
       },
       {
-        type: "Explorer passes",
+        type: "Explorer passes"
       },
       {
-        type: "Redeem your pass",
+        type: "Redeem your pass"
       }
     ],
-    journeystarts: ["Glasgow Airport", "Glasgow Anniesland", "Glasgow Buchanan Bus Station", "Glasgow Cathedral Steet", "ect...."],
-    journeydestinations: ["Inverness Montague Road", "Inverness Tomnahurich", "Inverary", "Inveraray Brae", "ect...."],
+    journeystarts: [
+      "Glasgow Airport",
+      "Glasgow Anniesland",
+      "Glasgow Buchanan Bus Station",
+      "Glasgow Cathedral Steet",
+      "ect...."
+    ],
+    journeydestinations: [
+      "Inverness Montague Road",
+      "Inverness Tomnahurich",
+      "Inverary",
+      "Inveraray Brae",
+      "ect...."
+    ],
     passengertypes: [
       {
         typePassenger: "Adult",
@@ -62,12 +72,9 @@ export const store = new Vuex.Store({
     selectedReturnDate: new Date().toISOString().slice(0, 10),
     updatePassengerTypes: [],
     searchJourneysOut: "",
-    searchJourneysArrive: "",
- 
+    searchJourneysArrive: ""
   },
-  getters: {
-
-  },
+  getters: {},
   mutations: {
     updateSelectedJourneyType(state, selectedJourneyType) {
       state.selectedJourneyType = selectedJourneyType;
@@ -82,7 +89,9 @@ export const store = new Vuex.Store({
     },
 
     updatePassengerTypes(state, updatePassengerTypes) {
-      state.updatePassengerTypes = updatePassengerTypes.filter((x) => x.count >= 1);
+      state.updatePassengerTypes = updatePassengerTypes.filter(
+        x => x.count >= 1
+      );
     },
 
     updateJourneyStart(state, searchJourneysOut) {
@@ -92,7 +101,5 @@ export const store = new Vuex.Store({
     updateJourneyDestination(state, searchJourneysArrive) {
       state.searchJourneysArrive = searchJourneysArrive;
     }
-  },
-
-
+  }
 });

@@ -47,20 +47,24 @@
         </li>
 
         <li>
-          <button
-            @click="isOpen = false"
-            @input="isOpen = false"
-            style="margin-top: 30px;"
-          >
+          <button @click.prevent="handlePassengerEvents">
             Done
           </button>
         </li>
+
+        <li>{{ TicketsVisible }}</li>
       </ul>
     </div>
   </div>
 </template>
 <script>
 export default {
+  props: {
+    TicketsVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       isOpen: false,
@@ -91,6 +95,17 @@ export default {
       this.isOpen = !this.isOpen;
     },
 
+    handleClickOutside(evt) {
+      if (!this.$el.contains(evt.target)) {
+        this.isOpen = false;
+      }
+    },
+    handlePassengerEvents() {
+      this.isOpen = !this.isOpen;
+      // this.TicketsVisible = true;
+      // this.$emit("showTicketBar", true);
+    },
+
     updatePassangerType(i, value) {
       const newPassengerTypes = [...this.passengertypes];
       newPassengerTypes[i].count = parseInt(value); // value from input is always string
@@ -101,7 +116,12 @@ export default {
       console.log("captured");
     },
   },
+
+  mounted() {
+    document.addEventListener("click", this.handleClickOutside);
+  },
+  destroyed() {
+    document.removeEventListener("click", this.handleClickOutside);
+  },
 };
 </script>
-
-<style scoped></style>

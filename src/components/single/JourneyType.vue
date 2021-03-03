@@ -37,11 +37,3 @@ export default {
   methods: {},
 };
 </script>
-
-<style scoped>
-.widget__select {
-}
-
-.widget__select--label {
-}
-</style>
