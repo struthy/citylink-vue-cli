@@ -73,7 +73,8 @@ export const store = new Vuex.Store({
     updatePassengerTypes: [],
     searchJourneysOut: "",
     searchJourneysArrive: "",
-    showTicketBar: false
+    showTicketBar: false,
+    showSecondBar: false
   },
 
   mutations: {
@@ -103,10 +104,14 @@ export const store = new Vuex.Store({
       state.searchJourneysArrive = searchJourneysArrive;
     },
 
-    updateShowTicketBar(state, showTicketBar) {
-      
+     updateShowTicketBar(state, showTicketBar) {
       showTicketBar = true;
       state.showTicketBar = showTicketBar;
+    },
+
+    updateShowSecondBar(state, showSecondBar) {
+      showSecondBar = true;
+      state.showSecondBar = showSecondBar;
     },
   },
 

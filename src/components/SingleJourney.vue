@@ -41,7 +41,7 @@
 
     <div
       class="widget__options widget__options--level-2"
-      v-if="selectedJourneyType == 'single / return'"
+      v-if="selectedJourneyType == 'single / return' && showSecondBar == true"
     >
       <div class="widget__level-2-center">
         <!------------------------------ RETURN DATE DROPDOWN ----------------------->
@@ -64,8 +64,6 @@
 
     <find-tickets
       v-if="selectedJourneyType == 'single / return' && showTicketBar == true"
-      @showTicketBar="findTickets = $event"
-      :TicketsVisible="findTickets"
     ></find-tickets>
 
     <!------------------------------ other journeys ----------------------->
@@ -138,6 +136,15 @@ export default {
       },
       set(value) {
         this.$store.commit("updateShowTicketBar", value);
+      },
+    },
+
+    showSecondBar: {
+      get() {
+        return this.$store.state.showSecondBar;
+      },
+      set(value) {
+        this.$store.commit("updateShowSecondBar", value);
       },
     },
   },
