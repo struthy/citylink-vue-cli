@@ -63,7 +63,7 @@
     <!------------------------------ FIND TICKETS BAR ----------------------->
 
     <find-tickets
-      v-if="selectedJourneyType == 'single / return'"
+      v-if="selectedJourneyType == 'single / return' && showTicketBar == true"
       @showTicketBar="findTickets = $event"
       :TicketsVisible="findTickets"
     ></find-tickets>
@@ -129,6 +129,15 @@ export default {
       },
       set(value) {
         this.$store.commit("updateSelectedReturnDate", value);
+      },
+    },
+
+    showTicketBar: {
+      get() {
+        return this.$store.state.showTicketBar;
+      },
+      set(value) {
+        this.$store.commit("updateShowTicketBar", value);
       },
     },
   },

@@ -47,24 +47,16 @@
         </li>
 
         <li>
-          <button @click.prevent="handlePassengerEvents">
+          <button v-on:click="handlePassengerEvents()">
             Done
           </button>
         </li>
-
-        <li>{{ TicketsVisible }}</li>
       </ul>
     </div>
   </div>
 </template>
 <script>
 export default {
-  props: {
-    TicketsVisible: {
-      type: Boolean,
-      default: false,
-    },
-  },
   data() {
     return {
       isOpen: false,
@@ -88,6 +80,15 @@ export default {
         this.$store.commit("updatePassengerTypes", value);
       },
     },
+
+    showTicketBar: {
+      get() {
+        return this.$store.state.showTicketBar;
+      },
+      set(value) {
+        this.$store.commit("updateShowTicketBar", value);
+      },
+    },
   },
 
   methods: {
@@ -101,9 +102,10 @@ export default {
       }
     },
     handlePassengerEvents() {
+      if (this.$store.state.updatePassengerTypes.length >= 1) {
+        this.$store.commit("updateShowTicketBar");
+      }
       this.isOpen = !this.isOpen;
-      // this.TicketsVisible = true;
-      // this.$emit("showTicketBar", true);
     },
 
     updatePassangerType(i, value) {

@@ -72,9 +72,10 @@ export const store = new Vuex.Store({
     selectedReturnDate: new Date().toISOString().slice(0, 10),
     updatePassengerTypes: [],
     searchJourneysOut: "",
-    searchJourneysArrive: ""
+    searchJourneysArrive: "",
+    showTicketBar: false
   },
-  getters: {},
+
   mutations: {
     updateSelectedJourneyType(state, selectedJourneyType) {
       state.selectedJourneyType = selectedJourneyType;
@@ -100,6 +101,14 @@ export const store = new Vuex.Store({
 
     updateJourneyDestination(state, searchJourneysArrive) {
       state.searchJourneysArrive = searchJourneysArrive;
-    }
-  }
+    },
+
+    updateShowTicketBar(state, showTicketBar) {
+      
+      showTicketBar = true;
+      state.showTicketBar = showTicketBar;
+    },
+  },
+
+  
 });
