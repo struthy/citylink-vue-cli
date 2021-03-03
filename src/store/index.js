@@ -104,7 +104,7 @@ export const store = new Vuex.Store({
       state.searchJourneysArrive = searchJourneysArrive;
     },
 
-     updateShowTicketBar(state, showTicketBar) {
+    updateShowTicketBar(state, showTicketBar) {
       showTicketBar = true;
       state.showTicketBar = showTicketBar;
     },
@@ -112,8 +112,6 @@ export const store = new Vuex.Store({
     updateShowSecondBar(state, showSecondBar) {
       showSecondBar = true;
       state.showSecondBar = showSecondBar;
-    },
-  },
-
-  
+    }
+  }
 });

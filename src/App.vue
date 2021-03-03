@@ -10,7 +10,7 @@ import SingleJourney from "./components/SingleJourney.vue";
 export default {
   name: "app",
   components: {
-    "single-journey": SingleJourney,
-  },
+    "single-journey": SingleJourney
+  }
 };
 </script>

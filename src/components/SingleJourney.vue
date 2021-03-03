@@ -5,7 +5,6 @@
     @submit.prevent="processForm"
   >
     <!------------------------------ JOURNEY TYPE DROPDOWN ----------------------->
-
     <div class="widget__journey-type">
       <journey-type></journey-type>
     </div>
@@ -16,15 +15,12 @@
       id="single-journey"
     >
       <!------------------------------ JOURNEY FROM DROPDOWN ----------------------->
-
       <journeys-out form-label="From" :items="this.journeystarts" />
 
       <!------------------------------ JOURNEY TO DROPDOWN ----------------------->
-
       <journeys-arrive form-label="To" :items="this.journeydestinations" />
 
       <!------------------------------ LEAVING DATE DROPDOWN ----------------------->
-
       <div class="datepicker__decoration">
         <datepicker
           v-model="selectedLeavingDate"
@@ -38,7 +34,6 @@
     <!--------------------------------------------------------------------------->
     <!------------------------------ LEVEL 2 OF JOURNEY ------------------------->
     <!--------------------------------------------------------------------------->
-
     <div
       class="widget__options widget__options--level-2"
       v-if="selectedJourneyType == 'single / return' && showSecondBar == true"
@@ -55,18 +50,19 @@
         </div>
 
         <!------------------------------ PASSENGER TYPE DROPDOWN ----------------------->
-
         <passenger-type></passenger-type>
       </div>
     </div>
 
-    <!------------------------------ FIND TICKETS BAR ----------------------->
+    <!--------------------------------------------------------------------------->
+    <!------------------------------ LEVEL 3 OF JOURNEY ------------------------->
+    <!------------------------------ FIND TICKETS BAR --------------------------->
 
     <find-tickets
       v-if="selectedJourneyType == 'single / return' && showTicketBar == true"
     ></find-tickets>
 
-    <!------------------------------ other journeys ----------------------->
+    <!------------------------------ other journeys to follow ----------------------->
   </form>
 </template>
 
@@ -85,12 +81,12 @@ export default {
     "journeys-out": JourneysOut,
     "journeys-arrive": JourneysArrive,
     "find-tickets": FindTickets,
-    Datepicker,
+    Datepicker
   },
 
   data: function() {
     return {
-      findTickets: false,
+      findTickets: false
     };
   },
 
@@ -109,7 +105,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updateSelectedJourneyType", value);
-      },
+      }
     },
 
     selectedLeavingDate: {
@@ -118,7 +114,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updateSelectedLeavingDate", value);
-      },
+      }
     },
 
     selectedReturnDate: {
@@ -127,7 +123,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updateSelectedReturnDate", value);
-      },
+      }
     },
 
     showTicketBar: {
@@ -136,7 +132,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updateShowTicketBar", value);
-      },
+      }
     },
 
     showSecondBar: {
@@ -145,16 +141,11 @@ export default {
       },
       set(value) {
         this.$store.commit("updateShowSecondBar", value);
-      },
-    },
+      }
+    }
   },
 
   methods: {
-    // setTickerBar: function(x) {
-    //   this.findTickets == x;
-    //   console.log(this.findTickets);
-    // },
-
     processForm: function() {
       console.log({
         selectedJourneyType: this.$store.state.selectedJourneyType,
@@ -162,10 +153,10 @@ export default {
         searchJourneysArrive: this.$store.state.searchJourneysArrive,
         selectedLeavingDate: this.$store.state.selectedLeavingDate,
         selectedReturnDate: this.$store.state.selectedReturnDate,
-        updatePassengerTypes: this.$store.state.updatePassengerTypes,
+        updatePassengerTypes: this.$store.state.updatePassengerTypes
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

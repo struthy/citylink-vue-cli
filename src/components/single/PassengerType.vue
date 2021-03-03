@@ -59,7 +59,7 @@
 export default {
   data() {
     return {
-      isOpen: false,
+      isOpen: false
     };
   },
   computed: {
@@ -69,7 +69,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updatePassengerTypes", value);
-      },
+      }
     },
 
     updatePassengerTypes: {
@@ -78,7 +78,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updatePassengerTypes", value);
-      },
+      }
     },
 
     showTicketBar: {
@@ -87,8 +87,8 @@ export default {
       },
       set(value) {
         this.$store.commit("updateShowTicketBar", value);
-      },
-    },
+      }
+    }
   },
 
   methods: {
@@ -116,7 +116,7 @@ export default {
 
     captureUpdatedPassengerTypes() {
       console.log("captured");
-    },
+    }
   },
 
   mounted() {
@@ -124,6 +124,6 @@ export default {
   },
   destroyed() {
     document.removeEventListener("click", this.handleClickOutside);
-  },
+  }
 };
 </script>
