@@ -30,8 +30,8 @@ export default {
       },
       set(value) {
         this.$store.commit("updateSelectedJourneyType", value);
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
