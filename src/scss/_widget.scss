@@ -3,11 +3,12 @@ body {
 }
 
 .widget {
-  display: flex;
   margin: 0 auto;
-  flex: 1 1 100%;
-  justify-content: center;
-  flex-direction: row;
+  max-width: 1335px;
+}
+
+.widget__single-container {
+  flex: 0 1 70%;
 }
 
 .widget__container {

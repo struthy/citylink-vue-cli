@@ -1,4 +1,5 @@
 <template>
+<div class="grid-level-1 flex grid-level-1__journey-type">
   <div class="journey-type">
     <div class="journey-type__decoration">
       <label class="journey-type__label">Type</label>
@@ -11,6 +12,7 @@
         </option>
       </select>
     </div>
+  </div>
   </div>
 </template>
 <script>
