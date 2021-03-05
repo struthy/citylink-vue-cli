@@ -1,6 +1,6 @@
 <template>
   <div class="grid-level-3" v-if="selectedJourneyType == 'Multi journey'">
-        <h3>level Two of Multijourney</h3>
+    <h3>level Two of Multijourney</h3>
   </div>
 </template>
 
@@ -15,6 +15,6 @@ export default {
         this.$store.commit("updateSelectedJourneyType", value);
       }
     }
-  },
+  }
 };
 </script>

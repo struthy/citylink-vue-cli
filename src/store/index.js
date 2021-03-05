@@ -5,6 +5,30 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
+    journeypasses: ["10 Journey", "1 Week Pass", "3 Week Pass", "52 Week pass"],
+
+    journeyroutes: [
+      {
+        route: "Route 1",
+        routestart: "Harthill",
+        routeend: "Edinburgh"
+      },
+      {
+        route: "Route 2",
+        routestart: "Glasgow",
+        routeend: "Edinburgh"
+      },
+      {
+        route: "Route 3",
+        routestart: "Harthill",
+        routeend: "Glasgow"
+      },
+      {
+        route: "Route 4",
+        routestart: "Edinburgh",
+        routeend: "Stirling"
+      }
+    ],
     journeytypes: [
       {
         type: "single / return"

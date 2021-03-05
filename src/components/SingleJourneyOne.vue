@@ -21,21 +21,16 @@
         </datepicker>
       </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
-
-
 import JourneysOut from "./single/JourneysOut.vue";
 import JourneysArrive from "./single/JourneysArrive.vue";
 import Datepicker from "vuejs-datepicker";
 
-
 export default {
   components: {
-    
-
     "journeys-out": JourneysOut,
     "journeys-arrive": JourneysArrive,
     Datepicker

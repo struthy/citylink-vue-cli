@@ -1,6 +1,5 @@
 <template>
   <div class="grid-level-3">
-
     <div
       class="widget__options widget__options--level-2"
       v-if="selectedJourneyType == 'single / return' && showSecondBar == true"
@@ -21,16 +20,13 @@
       </div>
     </div>
 
-
     <find-tickets
       v-if="selectedJourneyType == 'single / return' && showTicketBar == true"
     ></find-tickets>
-
-</div>
+  </div>
 </template>
 
 <script>
-
 import PassengerType from "./single/PassengerType.vue";
 import Datepicker from "vuejs-datepicker";
 import FindTickets from "./single/FindTickets.vue";
@@ -57,7 +53,6 @@ export default {
         this.$store.commit("updateSelectedJourneyType", value);
       }
     },
-
 
     selectedReturnDate: {
       get() {

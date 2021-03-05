@@ -47,8 +47,8 @@ export default {
       },
       set(value) {
         this.$store.commit("updateJourneyDestination", value);
-      },
-    },
+      }
+    }
   },
 
   methods: {
@@ -69,7 +69,7 @@ export default {
 
     filterResults() {
       // first uncapitalize all the things
-      this.results = this.items.filter((item) => {
+      this.results = this.items.filter(item => {
         return (
           item.toLowerCase().indexOf(this.searchJourneysArrive.toLowerCase()) >
           -1
@@ -79,7 +79,7 @@ export default {
     setResult(result) {
       this.searchJourneysArrive = result;
       this.isOpen = false;
-    },
-  },
+    }
+  }
 };
 </script>
