@@ -3,7 +3,8 @@
     <div class="journey-type">
       <div class="journey-type__decoration">
         <label class="journey-type__label">Type</label>
-        <select class="journey-type__select" v-model="selectedJourneyType">
+        <!-- <button @click.prevent="actionReset"> sda</button> -->
+        <select class="journey-type__select" v-model="selectedJourneyType" >
           <option
             v-for="(journeytype, i) in journeytypes"
             :key="'journeytypes' + i"
@@ -31,6 +32,7 @@ export default {
         return this.$store.state.selectedJourneyType;
       },
       set(value) {
+        this.$store.dispatch("clearState"); // this is a slight hack - prob needs done properlly uses https://github.com/huybuidac/vuex-extensions
         this.$store.commit("updateSelectedJourneyType", value);
       }
     }

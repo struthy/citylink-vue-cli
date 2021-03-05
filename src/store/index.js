@@ -1,9 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { createStore } from "vuex-extensions";
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+export const store = new createStore(Vuex.Store, {
+  
   state: {
     journeypasses: ["10 Journey", "1 Week Pass", "3 Week Pass", "52 Week pass"],
 
@@ -101,6 +103,8 @@ export const store = new Vuex.Store({
     showSecondBar: false
   },
 
+
+
   mutations: {
     updateSelectedJourneyType(state, selectedJourneyType) {
       state.selectedJourneyType = selectedJourneyType;
@@ -136,6 +140,11 @@ export const store = new Vuex.Store({
     updateShowSecondBar(state, showSecondBar) {
       showSecondBar = true;
       state.showSecondBar = showSecondBar;
+    }
+  },
+  actions: {
+    clearState() {
+      this.reset()
     }
   }
 });

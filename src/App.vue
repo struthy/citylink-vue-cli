@@ -1,17 +1,15 @@
 <template>
   <div id="app" class="widget">
     <form
-        class="grid-container"
-        id="journey-details"
-        @submit.prevent="processForm"
-      >
-
-        <journey-type></journey-type>
-        <single-journey-one></single-journey-one>
-        <single-journey-two></single-journey-two>
-        <multi-journey-one></multi-journey-one>
-        <multi-journey-two></multi-journey-two>
-
+      class="grid-container"
+      id="journey-details"
+      @submit.prevent="processForm"
+    >
+      <journey-type></journey-type>
+      <single-journey-one></single-journey-one>
+      <single-journey-two></single-journey-two>
+      <multi-journey-one></multi-journey-one>
+      <multi-journey-two></multi-journey-two>
     </form>
   </div>
 </template>
@@ -30,7 +28,7 @@ export default {
     "single-journey-one": SingleJourneyOne,
     "single-journey-two": SingleJourneyTwo,
     "multi-journey-one": MultiJourneyOne,
-    "multi-journey-two": MultiJourneyTwo,
+    "multi-journey-two": MultiJourneyTwo
   },
   computed: {
     selectedJourneyType: {
