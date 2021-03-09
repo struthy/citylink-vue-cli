@@ -3,10 +3,7 @@
     <div class="widget__options widget__options--level-2">
       <div class="widget__level-2-center">
         <journey-pass></journey-pass>
-
-        <div class="passengers">
-          <journey-route></journey-route>
-        </div>
+        <journey-route></journey-route>
       </div>
     </div>
   </div>

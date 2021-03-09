@@ -1,10 +1,10 @@
 <template>
-  <div class="passengers" id="passenger-type">
-    <div class="passengers__decoration">
-      <label class="passengers__label">Passengers</label>
+  <div class="dropdown" id="passenger-type">
+    <div class="dropdown__decoration">
+      <label class="dropdown__label">Passengers</label>
       <ul
         v-show="updatePassengerTypes"
-        class="passengers__selected"
+        class="dropdown__selected"
         @click="isOpen = true"
         @input="isOpen = true"
       >
@@ -13,9 +13,9 @@
         </li>
       </ul>
 
-      <ul class="passenger__types" v-if="isOpen">
+      <ul class="dropdown__types" v-if="isOpen">
         <li
-          class="passenger"
+          class="dropdown__li"
           v-for="(passengertype, i) in passengertypes"
           :key="i"
         >

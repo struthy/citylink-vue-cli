@@ -1,29 +1,35 @@
 <template>
-  <div class="passengers" id="passenger-type">
-    <div class="passengers__decoration">
-      <label class="passengers__label">Route</label>
+  <div class="dropdown" id="passenger-type">
+    <div class="dropdown__decoration">
+      <label class="dropdown__label">Route</label>
       <ul
         v-show="selectedJourneyroutes"
-        class="passengers__selected"
+        class="dropdown__selected"
         @click="isOpen = true"
         @input="isOpen = true"
       >
         <li v-for="(a, i) in selectedJourneyroutes" :key="i">
-          {{ a.typePassenger }} x {{ a.routestart }}
+          {{ a.route }}
         </li>
       </ul>
 
-      <ul class="passenger__types" v-if="isOpen">
+      <ul class="dropdown__types" v-if="isOpen">
         <li
-          class="passenger"
+          class="dropdown__li"
           v-for="(journeyroute, i) in journeyroutes"
           :key="i"
         >
-          <div class="passenger-count__container">
-            <span>{{ journeyroute.route }}</span>
-            <span>{{ journeyroute.routestart }}</span>
-            <span>{{ journeyroute.routeend }}</span>
-          </div>
+            <div class="dropdown__route-container" @click="getRoute(i, $event.target.innertext)">
+                <div class="dropdown__route-detail">
+                    <span>{{ journeyroute.route }}</span>
+                </div>
+                <div class="dropdown__route-detail">
+                    <span>{{ journeyroute.routestart }}</span>
+                </div>
+                <div class="dropdown__route-detail">
+                    <span>{{ journeyroute.routeend }}</span>
+                </div>
+            </div>
         </li>
       </ul>
     </div>
@@ -42,16 +48,16 @@ export default {
         return this.$store.state.journeyroutes;
       },
       set(value) {
-        this.$store.commit("selectedJourneyroutes", value);
+        this.$store.commit("selectedJourneyroute", value);
       }
     },
 
     selectedJourneyroutes: {
       get() {
-        return this.$store.state.selectedJourneyroutes;
+        return this.$store.state.selectedJourneyroute;
       },
       set(value) {
-        this.$store.commit("selectedJourneyroutes", value);
+        this.$store.commit("selectedJourneyroute", value);
       }
     },
 
@@ -66,6 +72,12 @@ export default {
       if (!this.$el.contains(evt.target)) {
         this.isOpen = false;
       }
+    },
+
+    getRoute(i) {
+        const newJourneyRoutes = [...this.journeyroutes];
+        newJourneyRoutes[i]
+        this.$store.commit("updateSelectedJourneyRoutes", newJourneyRoutes);
     }
   },
 
