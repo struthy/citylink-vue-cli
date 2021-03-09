@@ -47,7 +47,6 @@ export default {
         this.$store.commit("updateShowTicketBar", value);
       }
     },
-
     showSecondBar: {
       get() {
         return this.$store.state.showSecondBar;

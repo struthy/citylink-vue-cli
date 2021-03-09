@@ -4,7 +4,7 @@
       <div class="journey-type__decoration">
         <label class="journey-type__label">Type</label>
         <!-- <button @click.prevent="actionReset"> sda</button> -->
-        <select class="journey-type__select" v-model="selectedJourneyType" >
+        <select class="journey-type__select" v-model="selectedJourneyType">
           <option
             v-for="(journeytype, i) in journeytypes"
             :key="'journeytypes' + i"

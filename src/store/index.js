@@ -5,7 +5,6 @@ import { createStore } from "vuex-extensions";
 Vue.use(Vuex);
 
 export const store = new createStore(Vuex.Store, {
-  
   state: {
     journeypasses: ["10 Journey", "1 Week Pass", "3 Week Pass", "52 Week pass"],
 
@@ -96,14 +95,13 @@ export const store = new createStore(Vuex.Store, {
     selectedJourneyType: "single / return",
     selectedLeavingDate: new Date().toISOString().slice(0, 10),
     selectedReturnDate: new Date().toISOString().slice(0, 10),
+    selectedJourneyPass: "10 Journey",
     updatePassengerTypes: [],
     searchJourneysOut: "",
     searchJourneysArrive: "",
     showTicketBar: false,
     showSecondBar: false
   },
-
-
 
   mutations: {
     updateSelectedJourneyType(state, selectedJourneyType) {
@@ -140,11 +138,15 @@ export const store = new createStore(Vuex.Store, {
     updateShowSecondBar(state, showSecondBar) {
       showSecondBar = true;
       state.showSecondBar = showSecondBar;
-    }
+    },
+
+    updateSelectedJourneyPass(state, selectedJourneyPass) {
+      state.selectedJourneyPass = selectedJourneyPass;
+    },
   },
   actions: {
     clearState() {
-      this.reset()
+      this.reset();
     }
   }
 });
