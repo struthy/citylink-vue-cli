@@ -96,6 +96,7 @@ export const store = new createStore(Vuex.Store, {
     selectedLeavingDate: new Date().toISOString().slice(0, 10),
     selectedReturnDate: new Date().toISOString().slice(0, 10),
     selectedJourneyPass: "10 Journey",
+    selectedJourneyroutes: "Please Choose Route",
     updatePassengerTypes: [],
     searchJourneysOut: "",
     searchJourneysArrive: "",
@@ -143,6 +144,10 @@ export const store = new createStore(Vuex.Store, {
     updateSelectedJourneyPass(state, selectedJourneyPass) {
       state.selectedJourneyPass = selectedJourneyPass;
     },
+    
+    updateSelectedJourneyRoutes(state, selectedJourneyroutes) {
+      state.selectedJourneyroutes = selectedJourneyroutes;
+    }
   },
   actions: {
     clearState() {
