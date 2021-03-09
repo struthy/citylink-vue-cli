@@ -9,7 +9,7 @@
         @input="isOpen = true"
       >
         <li v-for="(a, i) in selectedJourneyroutes" :key="i">
-          {{ a.route }}
+          {{ a.routestart}} 
         </li>
       </ul>
 
@@ -19,16 +19,16 @@
           v-for="(journeyroute, i) in journeyroutes"
           :key="i"
         >
-            <div class="dropdown__route-container" @click="getRoute(i, $event.target.innertext)">
-                <div class="dropdown__route-detail">
+            <div class="dropdown__route-container" @click="getRoute(i, $event.target.textContent)">
+                
                     <span>{{ journeyroute.route }}</span>
-                </div>
-                <div class="dropdown__route-detail">
+                
+             
                     <span>{{ journeyroute.routestart }}</span>
-                </div>
-                <div class="dropdown__route-detail">
+               
+                
                     <span>{{ journeyroute.routeend }}</span>
-                </div>
+                
             </div>
         </li>
       </ul>
@@ -74,9 +74,11 @@ export default {
       }
     },
 
-    getRoute(i) {
+    getRoute(i, textContent) {
+        console.log(textContent)
+        this.isOpen = false;
         const newJourneyRoutes = [...this.journeyroutes];
-        newJourneyRoutes[i]
+        newJourneyRoutes[i, textContent] 
         this.$store.commit("updateSelectedJourneyRoutes", newJourneyRoutes);
     }
   },

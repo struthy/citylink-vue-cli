@@ -11,23 +11,23 @@ export const store = new createStore(Vuex.Store, {
     journeyroutes: [
       {
         route: "Route 1",
-        routestart: "Harthill",
-        routeend: "Edinburgh"
+        routestart: "start a",
+        routeend: "end a"
       },
       {
         route: "Route 2",
-        routestart: "Glasgow",
-        routeend: "Edinburgh"
+        routestart: "start b",
+        routeend: "end b"
       },
       {
         route: "Route 3",
-        routestart: "Harthill",
-        routeend: "Glasgow"
+        routestart: "start c",
+        routeend: "end c"
       },
       {
         route: "Route 4",
-        routestart: "Edinburgh",
-        routeend: "Stirling"
+        routestart: "start d",
+        routeend: "end d"
       }
     ],
     journeytypes: [
