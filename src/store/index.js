@@ -95,12 +95,14 @@ export const store = new createStore(Vuex.Store, {
         count: 0
       }
     ],
+    durations: ["3 days travel - valid for 5 days", "5 days travel - valid for 10 dayss", "8 days travel - valid for 16 days"],
     selectedJourneyType: "single / return",
     selectedLeavingDate: new Date().toISOString().slice(0, 10),
     selectedReturnDate: new Date().toISOString().slice(0, 10),
     selectedJourneyPass: "10 Journey",
     selectedJourneyroute: [],
     selectedJourneyrouteText: "Please choose",
+    selectedDuration: "3 days travel - valid for 5 days",
     updatePassengerTypes: [],
     searchJourneysOut: "",
     searchJourneysArrive: "",
@@ -154,6 +156,9 @@ export const store = new createStore(Vuex.Store, {
     },
     updateSelectedJourneyRoutesText(state, selectedJourneyrouteText) {
       state.selectedJourneyrouteText = selectedJourneyrouteText;
+    },
+    updateSelectedDurations(state, selectedDuration) {
+      state.selectedDuration = selectedDuration;
     }
   },
   actions: {

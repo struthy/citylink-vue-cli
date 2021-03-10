@@ -10,6 +10,8 @@
       <single-journey-two></single-journey-two>
       <multi-journey-one></multi-journey-one>
       <multi-journey-two></multi-journey-two>
+      <explorer-journey-one></explorer-journey-one>
+      <explorer-journey-two></explorer-journey-two>
     </form>
   </div>
 </template>
@@ -20,6 +22,8 @@ import SingleJourneyOne from "./components/SingleJourneyOne.vue";
 import SingleJourneyTwo from "./components/SingleJourneyTwo.vue";
 import MultiJourneyOne from "./components/MultiJourneyOne.vue";
 import MultiJourneyTwo from "./components/MultiJourneyTwo.vue";
+import ExplorerJourneyOne from "./components/ExplorerJourneyOne.vue";
+import ExplorerJourneyTwo from "./components/ExplorerJourneyTwo.vue";
 
 export default {
   name: "app",
@@ -28,7 +32,9 @@ export default {
     "single-journey-one": SingleJourneyOne,
     "single-journey-two": SingleJourneyTwo,
     "multi-journey-one": MultiJourneyOne,
-    "multi-journey-two": MultiJourneyTwo
+    "multi-journey-two": MultiJourneyTwo,
+    "explorer-journey-one": ExplorerJourneyOne,
+    "explorer-journey-two": ExplorerJourneyTwo
   },
   computed: {
     selectedJourneyType: {
