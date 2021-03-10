@@ -7,7 +7,6 @@ Vue.use(Vuex);
 export const store = new createStore(Vuex.Store, {
   state: {
     journeypasses: ["10 Journey", "1 Week Pass", "3 Week Pass", "52 Week pass"],
-
     journeyroutes: [
       {
         route: "Route 1",
@@ -102,10 +101,17 @@ export const store = new createStore(Vuex.Store, {
       "5 days travel - valid for 10 dayss",
       "8 days travel - valid for 16 days"
     ],
+    passNumberInput: "",
+    passNumbers: [
+      {pass: "EXP123456789CA"},
+      {pass: "EXP123456789CB"},
+      {pass: "EXP123456789CC"},
+    ],
     selectedJourneyType: "single / return",
     selectedLeavingDate: new Date().toISOString().slice(0, 10),
     selectedReturnDate: new Date().toISOString().slice(0, 10),
     selectedJourneyPass: "10 Journey",
+    selectedpassNumbers: [],
     selectedJourneyroute: [],
     selectedJourneyrouteText: "Please choose",
     selectedDuration: "3 days travel - valid for 5 days",
@@ -113,7 +119,8 @@ export const store = new createStore(Vuex.Store, {
     searchJourneysOut: "",
     searchJourneysArrive: "",
     showTicketBar: false,
-    showSecondBar: false
+    showSecondBar: false,
+    showRedeemForm: false
   },
 
   mutations: {
@@ -165,6 +172,15 @@ export const store = new createStore(Vuex.Store, {
     },
     updateSelectedDurations(state, selectedDuration) {
       state.selectedDuration = selectedDuration;
+    },
+    updateshowRedeemForm(state, showRedeemForm) {
+      state.showRedeemForm = showRedeemForm;
+    },
+    updatePassNumbers(state, selectedpassNumbers) {
+      state.selectedpassNumbers = selectedpassNumbers;
+    },
+    updatePassInput(state, selectedpassNumbers) {
+      state.selectedpassNumbers = selectedpassNumbers;
     }
   },
   actions: {

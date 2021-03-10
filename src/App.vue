@@ -12,6 +12,8 @@
       <multi-journey-two></multi-journey-two>
       <explorer-journey-one></explorer-journey-one>
       <explorer-journey-two></explorer-journey-two>
+      <redeem-journey-one></redeem-journey-one>
+      <redeem-journey-two></redeem-journey-two>
     </form>
   </div>
 </template>
@@ -24,6 +26,8 @@ import MultiJourneyOne from "./components/MultiJourneyOne.vue";
 import MultiJourneyTwo from "./components/MultiJourneyTwo.vue";
 import ExplorerJourneyOne from "./components/ExplorerJourneyOne.vue";
 import ExplorerJourneyTwo from "./components/ExplorerJourneyTwo.vue";
+import RedeemJourneyOne from "./components/RedeemJourneyOne.vue";
+import RedeemJourneyTwo from "./components/RedeemJourneyTwo.vue";
 
 export default {
   name: "app",
@@ -34,7 +38,9 @@ export default {
     "multi-journey-one": MultiJourneyOne,
     "multi-journey-two": MultiJourneyTwo,
     "explorer-journey-one": ExplorerJourneyOne,
-    "explorer-journey-two": ExplorerJourneyTwo
+    "explorer-journey-two": ExplorerJourneyTwo,
+    "redeem-journey-one": RedeemJourneyOne,
+    "redeem-journey-two": RedeemJourneyTwo
   },
   computed: {
     selectedJourneyType: {
@@ -59,6 +65,14 @@ export default {
       },
       set(value) {
         this.$store.commit("updateShowSecondBar", value);
+      }
+    },
+    showRedeemForm: {
+      get() {
+        return this.$store.state.showRedeemForm;
+      },
+      set(value) {
+        this.$store.commit("updateshowRedeemForm", value);
       }
     }
   }
