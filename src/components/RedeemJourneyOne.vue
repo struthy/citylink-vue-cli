@@ -55,14 +55,12 @@ export default {
   methods: {
     handleRedeemForm() {
         if (this.$store.state.passNumbers.find(x => x.pass === this.$store.state.selectedpassNumbers)) {
-            console.log("true")
+            this.$store.commit("updateshowRedeemForm");
         } else {
             console.log("false")
         }
     }
   },
-
-  
 };
 </script>
 

@@ -174,6 +174,7 @@ export const store = new createStore(Vuex.Store, {
       state.selectedDuration = selectedDuration;
     },
     updateshowRedeemForm(state, showRedeemForm) {
+      showRedeemForm = true;
       state.showRedeemForm = showRedeemForm;
     },
     updatePassNumbers(state, selectedpassNumbers) {
