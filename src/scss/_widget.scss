@@ -5,6 +5,10 @@ body {
 .widget {
   margin: 0 auto;
   max-width: 1335px;
+
+  &__pb {
+    padding-bottom: 1rem;
+  }
 }
 
 .widget__single-container {
@@ -44,6 +48,7 @@ body {
   display: flex;
   flex: 1 1 100%;
   background-color: #666;
+  flex-wrap: wrap;
   justify-content: center;
 }
 

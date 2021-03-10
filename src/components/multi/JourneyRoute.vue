@@ -11,7 +11,7 @@
         <li>{{selectedJourneyroutesText}}   </li>     
       </ul>
 
-      <ul class="dropdown__types" v-if="isOpen">
+      <ul class="dropdown__types dropdown__types--z1" v-if="isOpen">
         <li
           class="dropdown__li"
           v-for="(journeyroute, i) in journeyroutes"
