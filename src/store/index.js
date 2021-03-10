@@ -30,9 +30,11 @@ export const store = new createStore(Vuex.Store, {
         routeend: "Stirling"
       }
     ],
-    journeyroutestext: [{
-      name: "Please choose"
-    }],
+    journeyroutestext: [
+      {
+        name: "Please choose"
+      }
+    ],
     journeytypes: [
       {
         type: "single / return"
@@ -95,7 +97,11 @@ export const store = new createStore(Vuex.Store, {
         count: 0
       }
     ],
-    durations: ["3 days travel - valid for 5 days", "5 days travel - valid for 10 dayss", "8 days travel - valid for 16 days"],
+    durations: [
+      "3 days travel - valid for 5 days",
+      "5 days travel - valid for 10 dayss",
+      "8 days travel - valid for 16 days"
+    ],
     selectedJourneyType: "single / return",
     selectedLeavingDate: new Date().toISOString().slice(0, 10),
     selectedReturnDate: new Date().toISOString().slice(0, 10),

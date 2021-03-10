@@ -63,7 +63,7 @@ export default {
       set(value) {
         this.$store.commit("updateShowTicketBar", value);
       }
-    },
+    }
   }
 };
 </script>

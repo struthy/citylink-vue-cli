@@ -1,10 +1,9 @@
 <template>
   <div class="grid-level-3" v-if="selectedJourneyType == 'Explorer passes'">
     <div class="widget__options widget__options--level-2">
-      <div class="widget__level-2-center widget__pb">
-        <duration></duration>
-      </div>
       <div class="widget__level-2-center">
+        <duration></duration>
+
         <div class="datepicker__decoration datepicker__decoration--50">
           <datepicker
             v-model="selectedLeavingDate"
@@ -25,12 +24,11 @@
 <script>
 import Duration from "./explorer/Duration.vue";
 import PassengerType from "./explorer/PassengerType.vue";
-import FindTickets from "./multi/FindTickets.vue";
-
+import FindTickets from "./explorer/FindTickets.vue";
 import Datepicker from "vuejs-datepicker";
 export default {
   components: {
-    "duration": Duration,
+    duration: Duration,
     "passenger-type": PassengerType,
     "find-tickets": FindTickets,
     Datepicker
@@ -60,7 +58,7 @@ export default {
       set(value) {
         this.$store.commit("updateShowTicketBar", value);
       }
-    },
+    }
   }
 };
 </script>

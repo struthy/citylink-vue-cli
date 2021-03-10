@@ -2,10 +2,7 @@
   <div class="datepicker__decoration datepicker__decoration--50">
     <label class="journey-type__label">Duration</label>
     <select class="journey-type__select" v-model="selectedDuration">
-      <option
-        v-for="(duration, i) in durations"
-        :key="'duration' + i"
-      >
+      <option v-for="(duration, i) in durations" :key="'duration' + i">
         {{ duration }}
       </option>
     </select>
