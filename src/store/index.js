@@ -11,25 +11,28 @@ export const store = new createStore(Vuex.Store, {
     journeyroutes: [
       {
         route: "Route 1",
-        routestart: "start a",
-        routeend: "end a"
+        routestart: "Glasgow",
+        routeend: "Edinburgh"
       },
       {
         route: "Route 2",
-        routestart: "start b",
-        routeend: "end b"
+        routestart: "Harthill",
+        routeend: "Edinburgh"
       },
       {
         route: "Route 3",
-        routestart: "start c",
-        routeend: "end c"
+        routestart: "Harthill",
+        routeend: "Glasgow"
       },
       {
         route: "Route 4",
-        routestart: "start d",
-        routeend: "end d"
+        routestart: "Edinburgh",
+        routeend: "Stirling"
       }
     ],
+    journeyroutestext: [{
+      name: "Please choose"
+    }],
     journeytypes: [
       {
         type: "single / return"
@@ -96,7 +99,8 @@ export const store = new createStore(Vuex.Store, {
     selectedLeavingDate: new Date().toISOString().slice(0, 10),
     selectedReturnDate: new Date().toISOString().slice(0, 10),
     selectedJourneyPass: "10 Journey",
-    selectedJourneyroute: "Please Choose Route",
+    selectedJourneyroute: [],
+    selectedJourneyrouteText: "Please choose",
     updatePassengerTypes: [],
     searchJourneysOut: "",
     searchJourneysArrive: "",
@@ -147,6 +151,9 @@ export const store = new createStore(Vuex.Store, {
 
     updateSelectedJourneyRoutes(state, selectedJourneyroute) {
       state.selectedJourneyroute = selectedJourneyroute;
+    },
+    updateSelectedJourneyRoutesText(state, selectedJourneyrouteText) {
+      state.selectedJourneyrouteText = selectedJourneyrouteText;
     }
   },
   actions: {

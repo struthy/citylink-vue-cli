@@ -8,9 +8,7 @@
         @click="isOpen = true"
         @input="isOpen = true"
       >
-        <li v-for="(a, i) in selectedJourneyroutes" :key="i">
-          {{ a.routestart}} 
-        </li>
+        <li>{{selectedJourneyroutesText}}   </li>     
       </ul>
 
       <ul class="dropdown__types" v-if="isOpen">
@@ -19,16 +17,10 @@
           v-for="(journeyroute, i) in journeyroutes"
           :key="i"
         >
-            <div class="dropdown__route-container" @click="getRoute(i, $event.target.textContent)">
-                
-                    <span>{{ journeyroute.route }}</span>
-                
-             
-                    <span>{{ journeyroute.routestart }}</span>
-               
-                
-                    <span>{{ journeyroute.routeend }}</span>
-                
+            <div class="dropdown__route-container" @click="getRoute(i, $event.target.innerText)">
+                <span>{{ journeyroute.route }}</span>
+                <span>{{ journeyroute.routestart }}</span>
+                <span>{{ journeyroute.routeend }}</span>
             </div>
         </li>
       </ul>
@@ -52,9 +44,27 @@ export default {
       }
     },
 
+     journeyroutesText: {
+      get() {
+        return this.$store.state.journeyroutestext;
+      },
+      set(value) {
+        this.$store.commit("selectedJourneyrouteText", value);
+      }
+    },
+
     selectedJourneyroutes: {
       get() {
         return this.$store.state.selectedJourneyroute;
+      },
+      set(value) {
+        this.$store.commit("selectedJourneyroute", value);
+      }
+    },
+
+    selectedJourneyroutesText: {
+      get() {
+        return this.$store.state.selectedJourneyrouteText;
       },
       set(value) {
         this.$store.commit("selectedJourneyroute", value);
@@ -75,11 +85,14 @@ export default {
     },
 
     getRoute(i, textContent) {
-        console.log(textContent)
         this.isOpen = false;
         const newJourneyRoutes = [...this.journeyroutes];
-        newJourneyRoutes[i, textContent] 
+        let newJourneyRouteText = this.journeyroutestext;
+        newJourneyRoutes[i]
+        newJourneyRouteText = textContent.replace(/\n/g, " ");
+        console.log(newJourneyRouteText)
         this.$store.commit("updateSelectedJourneyRoutes", newJourneyRoutes);
+        this.$store.commit("updateSelectedJourneyRoutesText", newJourneyRouteText);
     }
   },
 
