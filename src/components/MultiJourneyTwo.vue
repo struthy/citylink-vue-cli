@@ -17,7 +17,9 @@
         <passenger-type></passenger-type>
       </div>
     </div>
-   
+    <find-tickets
+      v-if="selectedJourneyType == 'Multi journey' && showTicketBar == true"
+    ></find-tickets>
   </div>
 </template>
 
@@ -25,12 +27,15 @@
 import JourneyPass from "./multi/JourneyPass.vue";
 import JourneyRoute from "./multi/JourneyRoute.vue";
 import PassengerType from "./multi/PassengerType.vue";
+import FindTickets from "./multi/FindTickets.vue";
+
 import Datepicker from "vuejs-datepicker";
 export default {
   components: {
     "journey-pass": JourneyPass,
     "journey-route": JourneyRoute,
     "passenger-type": PassengerType,
+    "find-tickets": FindTickets,
     Datepicker
   },
 
@@ -49,6 +54,14 @@ export default {
       },
       set(value) {
         this.$store.commit("updateSelectedLeavingDate", value);
+      }
+    },
+    showTicketBar: {
+      get() {
+        return this.$store.state.showTicketBar;
+      },
+      set(value) {
+        this.$store.commit("updateShowTicketBar", value);
       }
     },
   }
