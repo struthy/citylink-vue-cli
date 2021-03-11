@@ -5,7 +5,7 @@
       v-if="selectedJourneyType == 'Redeem your pass'"
       id="single-journey"
     >
-      <label>Explorer pass number</label>
+      <label>Explorer pass number<span v-if="nonValidTicket">please enter a valid pass number</span></label>
       <input type="text" placeholder="EXP123456789CA" v-model="passNumberInput">
       <button @click.prevent="handleRedeemForm">Find my Pass</button>
     </div>
@@ -14,6 +14,13 @@
 
 <script>
 export default {
+
+  data: function() {
+    return {
+      nonValidTicket: false
+    };
+  },
+
   computed: {
     selectedJourneyType: {
       get() {
@@ -56,8 +63,10 @@ export default {
     handleRedeemForm() {
         if (this.$store.state.passNumbers.find(x => x.pass === this.$store.state.selectedpassNumbers)) {
             this.$store.commit("updateshowRedeemForm");
+            this.nonValidTicket = false
         } else {
-            console.log("false")
+          this.nonValidTicket = true
+            console.log("non valid ticket")
         }
     }
   },
