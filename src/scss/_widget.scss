@@ -29,18 +29,16 @@ body {
   padding: 20px 0;
 }
 
-.widget__select {
-}
-
-.widget__options {
-}
-
 .widget__options--level-1 {
-  padding: 20px 0;
+  padding: 1rem ;
   display: flex;
   flex: 1 1 70%;
   justify-content: space-between;
   background-color: #999;
+
+  a {
+    align-self: center;
+  }
 }
 
 .widget__options--level-2 {
@@ -77,4 +75,11 @@ body {
 .widget__find-tickets-btn {
   height: fit-content;
   align-self: center;
+}
+
+.widget__row {
+  display: flex;
+  flex-direction: row;
+  padding: 0 1rem;
+  flex: 1 1 100%;
 }

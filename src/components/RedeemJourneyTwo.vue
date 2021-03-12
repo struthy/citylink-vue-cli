@@ -36,6 +36,32 @@ your Explorer pass </h3></div>
           </fieldset>
         </div>
       </div>
+
+      <div class="widget__row">
+<!------------------------------ JOURNEY FROM DROPDOWN ----------------------->
+      <journeys-out form-label="From" :items="this.journeystarts" />
+
+      <!------------------------------ JOURNEY TO DROPDOWN ----------------------->
+      <journeys-arrive form-label="To" :items="this.journeydestinations" />
+
+      <div class="datepicker__decoration">
+        <datepicker
+          v-model="selectedLeavingDate"
+          placeholder="Select Leaving Date"
+          wrapper-class="datepicker"
+        >
+        </datepicker>
+      </div>
+
+      <div class="datepicker__decoration ">
+          <datepicker
+            v-model="selectedReturnDate"
+            placeholder="Select Return Date"
+            wrapper-class="datepicker"
+          >
+          </datepicker>
+        </div>
+      </div>
     </div>
     <find-tickets
       v-if="selectedJourneyType == 'Multi journey' && showTicketBar == true"
@@ -45,11 +71,24 @@ your Explorer pass </h3></div>
 
 <script>
 import FindTickets from "./multi/FindTickets.vue";
+import JourneysOut from "./redeem/JourneysOut.vue";
+import JourneysArrive from "./redeem/JourneysArrive.vue";
+import Datepicker from "vuejs-datepicker";
 export default {
   components: {
     "find-tickets": FindTickets,
+    "journeys-out": JourneysOut,
+    "journeys-arrive": JourneysArrive,
+    Datepicker
   },
   computed: {
+    journeystarts() {
+      return this.$store.state.journeystarts;
+    },
+
+    journeydestinations() {
+      return this.$store.state.journeydestinations;
+    },
     selectedJourneyType: {
       get() {
         return this.$store.state.selectedJourneyType;
