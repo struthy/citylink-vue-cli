@@ -103,9 +103,9 @@ export const store = new createStore(Vuex.Store, {
     ],
     passNumberInput: "",
     passNumbers: [
-      {pass: "EXP123456789CA"},
-      {pass: "EXP123456789CB"},
-      {pass: "EXP123456789CC"},
+      { pass: "EXP123456789CA" },
+      { pass: "EXP123456789CB" },
+      { pass: "EXP123456789CC" }
     ],
     selectedJourneyType: "single / return",
     selectedLeavingDate: new Date().toISOString().slice(0, 10),

@@ -5,10 +5,15 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "tailwind": "tailwind build ./src/assets/tailwind.css -c ./tailwind.js -o ./src/assets/output.css"
   },
   "dependencies": {
+   
+    "autoprefixer": "^9",
     "core-js": "^3.6.5",
+    "postcss": "^7",
+
     "vue": "^2.6.11",
     "vuejs-datepicker": "^1.6.2",
     "vuex": "^3.4.0",
@@ -28,6 +33,7 @@
     "prettier": "^1.19.1",
     "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
+  
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

@@ -2,10 +2,10 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        additionalData: `
-          @import "@/scss/main.scss";
-        `
+        additionalData: '\n          @import "@/scss/main.scss";\n        '
       }
-    }
+    },
+    modules: true,
+    sourceMap: true
   }
 };
