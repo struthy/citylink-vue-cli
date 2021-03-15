@@ -41,7 +41,7 @@ export default {
   mixins: [autocompleteMixin],
 
   computed: {
-      journeystarts() {
+    journeystarts() {
       return this.$store.state.journeystarts;
     },
 

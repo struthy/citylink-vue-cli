@@ -5,8 +5,9 @@
   >
     <div class="widget__options widget__options--level-2">
       <div class="redeem-form">
-        <div class="redeem-form__text"><h3>Great, we found
-your Explorer pass </h3></div>
+        <div class="redeem-form__text">
+          <h3>Great, we found your Explorer pass</h3>
+        </div>
         <div class="redeem-form__form-container">
           <fieldset class="redeem-form__fieldset">
             <div class="redeem-form__input-container">
@@ -38,22 +39,22 @@ your Explorer pass </h3></div>
       </div>
 
       <div class="widget__row">
-<!------------------------------ JOURNEY FROM DROPDOWN ----------------------->
-      <journeys-out form-label="From" :items="this.journeystarts" />
+        <!------------------------------ JOURNEY FROM DROPDOWN ----------------------->
+        <journeys-out form-label="From" :items="this.journeystarts" />
 
-      <!------------------------------ JOURNEY TO DROPDOWN ----------------------->
-      <journeys-arrive form-label="To" :items="this.journeydestinations" />
+        <!------------------------------ JOURNEY TO DROPDOWN ----------------------->
+        <journeys-arrive form-label="To" :items="this.journeydestinations" />
 
-      <div class="datepicker__decoration">
-        <datepicker
-          v-model="selectedLeavingDate"
-          placeholder="Select Leaving Date"
-          wrapper-class="datepicker"
-        >
-        </datepicker>
-      </div>
+        <div class="datepicker__decoration">
+          <datepicker
+            v-model="selectedLeavingDate"
+            placeholder="Select Leaving Date"
+            wrapper-class="datepicker"
+          >
+          </datepicker>
+        </div>
 
-      <div class="datepicker__decoration ">
+        <div class="datepicker__decoration ">
           <datepicker
             v-model="selectedReturnDate"
             placeholder="Select Return Date"
@@ -95,7 +96,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updateSelectedJourneyType", value);
-      },
+      }
     },
     selectedLeavingDate: {
       get() {
@@ -103,7 +104,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updateSelectedLeavingDate", value);
-      },
+      }
     },
     showTicketBar: {
       get() {
@@ -111,7 +112,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updateShowTicketBar", value);
-      },
+      }
     },
     showRedeemForm: {
       get() {
@@ -119,8 +120,8 @@ export default {
       },
       set(value) {
         this.$store.commit("updateshowRedeemForm", value);
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
