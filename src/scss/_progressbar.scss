@@ -7,8 +7,10 @@
 .progressbar__inner {
     height: 2rem;
     background-color: $yellow;
+    transition: all 0.5s ease;
 }
 
 .progressbar__inner--single {
     width: 25%;
+    transition: all 0.5s ease;
 }
