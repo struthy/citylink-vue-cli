@@ -14,6 +14,9 @@
       <explorer-journey-two></explorer-journey-two>
       <redeem-journey-one></redeem-journey-one>
       <redeem-journey-two></redeem-journey-two>
+      <div class="grid-level-4"><div class="progressbar">
+        <div class="progressbar__inner"></div>
+    </div></div>
     </form>
   </div>
 </template>

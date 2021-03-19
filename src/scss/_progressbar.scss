@@ -1,0 +1,11 @@
+.progressbar {
+    height: 2rem;
+    width: 100%;
+    background-color:#fff;
+}
+
+.progressbar__inner {
+    height: 2rem;
+    width: 25%;
+    background-color: $yellow;
+}

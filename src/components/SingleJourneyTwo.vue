@@ -23,6 +23,8 @@
     <find-tickets
       v-if="selectedJourneyType == 'single / return' && showTicketBar == true"
     ></find-tickets>
+
+    
   </div>
 </template>
 
