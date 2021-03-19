@@ -48,7 +48,15 @@ export default {
       set(value) {
         this.$store.commit("updateJourneyDestination", value);
       }
-    }
+    },
+    progressBar: {
+      get() {
+        return this.$store.state.progressSingle;
+      },
+      set(value) {
+        this.$store.commit("updateProgressSingle", value);
+      },
+    },
   },
 
   methods: {
@@ -79,6 +87,7 @@ export default {
     setResult(result) {
       this.searchJourneysArrive = result;
       this.isOpen = false;
+      this.progressBar = this.progressBar + 20;
     }
   }
 };

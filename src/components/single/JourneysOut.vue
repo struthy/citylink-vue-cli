@@ -87,10 +87,7 @@ export default {
     setResult(result) {
       this.searchJourneysOut = result;
       this.isOpen = false;
-      if(this.progressBar == 20) {
-        this.progressBar = this.progressBar + 20;
-      }
-      
+      this.progressBar = this.progressBar + 20;
     }
   }
 };

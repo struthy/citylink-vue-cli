@@ -121,7 +121,7 @@ export const store = new createStore(Vuex.Store, {
     showTicketBar: false,
     showSecondBar: false,
     showRedeemForm: false,
-    progressSingle: 20,
+    progressSingle: 40,
   },
 
   mutations: {

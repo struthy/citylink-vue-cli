@@ -88,7 +88,15 @@ export default {
       set(value) {
         this.$store.commit("updateShowTicketBar", value);
       }
-    }
+    },
+    progressBar: {
+      get() {
+        return this.$store.state.progressSingle;
+      },
+      set(value) {
+        this.$store.commit("updateProgressSingle", value);
+      },
+    },
   },
 
   methods: {
@@ -104,6 +112,7 @@ export default {
     handlePassengerEvents() {
       if (this.$store.state.updatePassengerTypes.length >= 1) {
         this.$store.commit("updateShowTicketBar");
+        this.progressBar = this.progressBar + 20;
       }
       this.isOpen = !this.isOpen;
     },
