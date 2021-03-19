@@ -17,7 +17,7 @@
       <!--each progressbar has seperate weights/percentages for each journey-->
       <div class="grid-level-4" v-if="selectedJourneyType == 'single / return'">
         <div class="progressbar progressbar--single">
-          <div class="progressbar__inner progressbar__inner--single" :style="{ width: progressBar }"></div>
+          <div class="progressbar__inner progressbar__inner--single" :style="{ width: progressBar + `%` }"></div>
         </div>
       </div>
     </form>

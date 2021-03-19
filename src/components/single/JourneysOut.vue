@@ -87,7 +87,9 @@ export default {
     setResult(result) {
       this.searchJourneysOut = result;
       this.isOpen = false;
-      this.progressBar = "60%";
+      if(this.progressBar == 20) {
+        this.progressBar = this.progressBar + 20;
+      }
       
     }
   }
