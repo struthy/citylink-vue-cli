@@ -6,6 +6,9 @@
 
 .progressbar__inner {
     height: 2rem;
-    width: 25%;
     background-color: $yellow;
+}
+
+.progressbar__inner--single {
+    width: 25%;
 }

@@ -14,10 +14,12 @@
       <explorer-journey-two></explorer-journey-two>
       <redeem-journey-one></redeem-journey-one>
       <redeem-journey-two></redeem-journey-two>
-      <div class="grid-level-4">
-        <div class="progressbar">
-        <div class="progressbar__inner"></div>
-    </div></div>
+      <!--each progressbar has seperate weights/percentages for each journey-->
+      <div class="grid-level-4" v-if="selectedJourneyType == 'single / return'">
+        <div class="progressbar progressbar--single">
+          <div class="progressbar__inner progressbar__inner--single" :style="{ width: progressBar }"></div>
+        </div>
+      </div>
     </form>
   </div>
 </template>
@@ -44,7 +46,7 @@ export default {
     "explorer-journey-one": ExplorerJourneyOne,
     "explorer-journey-two": ExplorerJourneyTwo,
     "redeem-journey-one": RedeemJourneyOne,
-    "redeem-journey-two": RedeemJourneyTwo
+    "redeem-journey-two": RedeemJourneyTwo,
   },
   computed: {
     selectedJourneyType: {
@@ -53,7 +55,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updateSelectedJourneyType", value);
-      }
+      },
     },
     showTicketBar: {
       get() {
@@ -61,7 +63,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updateShowTicketBar", value);
-      }
+      },
     },
     showSecondBar: {
       get() {
@@ -69,7 +71,7 @@ export default {
       },
       set(value) {
         this.$store.commit("updateShowSecondBar", value);
-      }
+      },
     },
     showRedeemForm: {
       get() {
@@ -77,8 +79,17 @@ export default {
       },
       set(value) {
         this.$store.commit("updateshowRedeemForm", value);
-      }
-    }
+      },
+    },
+
+    progressBar: {
+      get() {
+        return this.$store.state.progressSingle;
+      },
+      set(value) {
+        this.$store.commit("updateProgressSingle", value);
+      },
+    },
   }
 };
 </script>

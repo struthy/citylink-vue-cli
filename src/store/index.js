@@ -120,7 +120,8 @@ export const store = new createStore(Vuex.Store, {
     searchJourneysArrive: "",
     showTicketBar: false,
     showSecondBar: false,
-    showRedeemForm: false
+    showRedeemForm: false,
+    progressSingle: "20%",
   },
 
   mutations: {
@@ -182,7 +183,11 @@ export const store = new createStore(Vuex.Store, {
     },
     updatePassInput(state, selectedpassNumbers) {
       state.selectedpassNumbers = selectedpassNumbers;
-    }
+    },
+
+    updateProgressSingle(state, updatedProgressSingle) {
+      state.progressSingle = updatedProgressSingle;
+    },
   },
   actions: {
     clearState() {

@@ -48,7 +48,16 @@ export default {
       set(value) {
         this.$store.commit("updateJourneyStart", value);
       }
-    }
+    },
+
+    progressBar: {
+      get() {
+        return this.$store.state.progressSingle;
+      },
+      set(value) {
+        this.$store.commit("updateProgressSingle", value);
+      },
+    },
   },
 
   methods: {
@@ -78,6 +87,8 @@ export default {
     setResult(result) {
       this.searchJourneysOut = result;
       this.isOpen = false;
+      this.progressBar = "60%";
+      
     }
   }
 };
